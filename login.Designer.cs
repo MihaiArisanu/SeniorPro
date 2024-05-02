@@ -43,7 +43,9 @@ namespace SeniorPro
             // 
             // btn_show_hide
             // 
-            this.btn_show_hide.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_show_hide.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_show_hide.Font = new System.Drawing.Font("Constantia", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_show_hide.Location = new System.Drawing.Point(486, 205);
             this.btn_show_hide.Name = "btn_show_hide";
@@ -135,7 +137,9 @@ namespace SeniorPro
             // 
             // btn_login
             // 
-            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_login.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_login.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
             this.btn_login.Location = new System.Drawing.Point(283, 261);
             this.btn_login.Name = "btn_login";
@@ -163,6 +167,7 @@ namespace SeniorPro
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "login";
             this.Text = "Autentificare";
             this.ResumeLayout(false);

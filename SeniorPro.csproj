@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -47,11 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Amintiri.cs">
+    <Compile Include="AmintiriConfigurari.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Amintiri.Designer.cs">
-      <DependentUpon>Amintiri.cs</DependentUpon>
+    <Compile Include="AmintiriConfigurari.Designer.cs">
+      <DependentUpon>AmintiriConfigurari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmintiriSlideShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmintiriSlideShow.Designer.cs">
+      <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
     </Compile>
     <Compile Include="Configurari.cs">
       <SubType>Form</SubType>
@@ -59,11 +81,35 @@
     <Compile Include="Configurari.Designer.cs">
       <DependentUpon>Configurari.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contact.Designer.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatePersonale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatePersonale.Designer.cs">
+      <DependentUpon>DatePersonale.cs</DependentUpon>
+    </Compile>
     <Compile Include="forgot.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forgot.Designer.cs">
       <DependentUpon>forgot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Glicemie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Glicemie.Designer.cs">
+      <DependentUpon>Glicemie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Greutate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Greutate.Designer.cs">
+      <DependentUpon>Greutate.cs</DependentUpon>
     </Compile>
     <Compile Include="Imagini.cs" />
     <Compile Include="Intro.cs">
@@ -92,14 +138,52 @@
     <Compile Include="inregistrare.Designer.cs">
       <DependentUpon>inregistrare.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Amintiri.resx">
-      <DependentUpon>Amintiri.cs</DependentUpon>
+    <Compile Include="Schema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schema.Designer.cs">
+      <DependentUpon>Schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeniorProDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeniorProDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tensiune.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tensiune.Designer.cs">
+      <DependentUpon>Tensiune.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vorbim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vorbim.Designer.cs">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AmintiriConfigurari.resx">
+      <DependentUpon>AmintiriConfigurari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmintiriSlideShow.resx">
+      <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Configurari.resx">
       <DependentUpon>Configurari.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contact.resx">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatePersonale.resx">
+      <DependentUpon>DatePersonale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forgot.resx">
       <DependentUpon>forgot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Glicemie.resx">
+      <DependentUpon>Glicemie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Greutate.resx">
+      <DependentUpon>Greutate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Intro.resx">
       <DependentUpon>Intro.cs</DependentUpon>
@@ -122,6 +206,15 @@
     <EmbeddedResource Include="inregistrare.resx">
       <DependentUpon>inregistrare.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Schema.resx">
+      <DependentUpon>Schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tensiune.resx">
+      <DependentUpon>Tensiune.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vorbim.resx">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,9 +224,41 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SeniorProDataSet.xsc">
+      <DependentUpon>SeniorProDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SeniorProDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SeniorProDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SeniorProDataSet.xss">
+      <DependentUpon>SeniorProDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SeniorPro.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SeniorPro_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SeniorPro.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

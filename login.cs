@@ -22,18 +22,17 @@ namespace SeniorPro
             txt_pass.UseSystemPasswordChar = true;
             btn_show_hide.Text = "Arata";
 
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
-            con.Open();
-
-            txt_email.Text = "lmiana@yahoo.com";
+            txt_email.Text = "lmiana@yahoo.com";  //TODO  
             txt_pass.Text = "123";
+
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+            con.Open();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            inregistrare form = new inregistrare();
-            form.Show();
-            this.Hide();
+            Hide();
+            new inregistrare().Show();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -44,14 +43,8 @@ namespace SeniorPro
             var red = cmd.ExecuteReader();
             if (red.Read())
             {
-                Main main = new Main(red.GetInt32(0), red.GetString(1));
-                main.Show();
-                this.Hide();
-                main.FormClosed += (a, b) =>
-                {
-                    this.Show();
-                    txt_email.Text = txt_pass.Text = "";
-                };
+                Hide();
+                new Main(red.GetInt32(0), red.GetString(1)).Show();
             }
             else
             {
@@ -68,9 +61,8 @@ namespace SeniorPro
 
         private void btn_password_Click(object sender, EventArgs e)
         {
-            forgot go = new forgot();
-            go.Show();
-            this.Hide();
+            Hide();
+            new forgot().Show();
         }
 
         private void btn_show_hide_Click(object sender, EventArgs e)

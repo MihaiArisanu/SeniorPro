@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace SeniorPro
 {
-    public partial class Intro : Form
+    public partial class Vorbim : Form
     {
-        public Intro()
+        int utilizator;
+        string nume;
+
+        public Vorbim(int a, string b)
         {
             InitializeComponent();
+
+            utilizator = a;
+            nume = b;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e)
         {
-            new login().Show();
-            Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new inregistrare().Show();
-            Hide();
+            Close();
+            new Main(utilizator, nume).Show();
         }
     }
 }

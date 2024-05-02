@@ -25,9 +25,8 @@ namespace SeniorPro
             utilizator = a;
             nume = b;
 
-            panelContact.Visible = false;
             panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelValori.Visible = false;
         }
 
         private void btnAdauga_Click(object sender, EventArgs e)
@@ -77,41 +76,36 @@ namespace SeniorPro
 
         private void btnAmintiri_Click(object sender, EventArgs e)
         {
-
-            panelContact.Visible = false;
-            if (panelAmintiri.Visible == false && panelImagini.Visible == false)
+            if (panelAmintiri.Visible == false)
             {
                 panelAmintiri.Visible = true;
-                panelImagini.Visible = true;
+                openChildFormInPanel(new AmintiriConfigurari(utilizator, nume));
             }
             else
             {
                 panelAmintiri.Visible = false;
-                panelImagini.Visible = false;
             }
         }
 
         private void btnDatePersonale_Click(object sender, EventArgs e)
         {
-            panelContact.Visible = false;
             panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelValori.Visible = false;
+            openChildFormInPanel(new DatePersonale(utilizator, nume));
         }
 
         private void btnContact_Click(object sender, EventArgs e)
         {
-            AfiseazaPersoanele();
-
-            panelContact.Visible = true;
             panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelValori.Visible = false;
+            openChildFormInPanel(new Contact(utilizator, nume));
         }
 
         private void btnSchema_Click(object sender, EventArgs e)
         {
-            panelContact.Visible = false;
             panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelValori.Visible = false;
+            openChildFormInPanel(new Schema(utilizator, nume));
         }
 
         private void btnInapoi_Click(object sender, EventArgs e)
@@ -121,37 +115,54 @@ namespace SeniorPro
             go.Show();
         }
 
-        private void AfiseazaPersoanele()
+        private Form activeForm = null;
+        private void openChildFormInPanel(Form childForm)
         {
-            try
-            {
-                con.Open();
-                string query = "SELECT nume FROM Persoane";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader reader = cmd.ExecuteReader();
+            if (activeForm != null)
+                activeForm.Close();
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
-                string listaPersoane = "";
-                while (reader.Read())
-                {
-                    listaPersoane += reader["Nume"].ToString() + "\n";
-                }
-                reader.Close();
-
-                labelPersoane.Text = listaPersoane;
-            }
-            catch (Exception ex)
+        private void btn_Valori_Click(object sender, EventArgs e)
+        {
+            panelValori.Visible = false;
+            if (panelValori.Visible == false)
             {
-                MessageBox.Show("Eroare: " + ex.Message);
+                panelValori.Visible = true;
+                openChildFormInPanel(new AmintiriConfigurari(utilizator, nume));
             }
-            finally
+            else
             {
-                con.Close();
+                panelValori.Visible = false;
             }
         }
 
-        private void btnPersoane_Click(object sender, EventArgs e)
+        private void Glicemie_Click(object sender, EventArgs e)
         {
-            AfiseazaPersoanele();
+            panelValori.Visible=false;
+            panelAmintiri.Visible=false;
+            openChildFormInPanel(new Glicemie(utilizator, nume));
+        }
+
+        private void Greutate_Click(object sender, EventArgs e)
+        {
+            panelValori.Visible = false;
+            panelAmintiri.Visible = false;
+            openChildFormInPanel(new Greutate(utilizator, nume));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panelValori.Visible = false;
+            panelAmintiri.Visible = false;
+            openChildFormInPanel(new Tensiune(utilizator, nume));
         }
     }
 }

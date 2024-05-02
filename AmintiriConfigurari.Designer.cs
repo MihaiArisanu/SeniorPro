@@ -1,7 +1,6 @@
-﻿
-namespace SeniorPro
+﻿namespace SeniorPro
 {
-    partial class Amintiri
+    partial class AmintiriConfigurari
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +28,15 @@ namespace SeniorPro
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Amintiri));
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Amintiri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(734, 501);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Amintiri";
             this.Text = "Amintiri";
             this.ResumeLayout(false);
@@ -51,7 +44,5 @@ namespace SeniorPro
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
