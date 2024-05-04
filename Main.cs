@@ -18,7 +18,6 @@ namespace SeniorPro
         private SqlConnection con;
         int utilizator;
         string nume;
-        string connectionString; // Definirea variabilei pentru ConnectionString
 
         public Main(int a, string b)
         {
@@ -67,12 +66,8 @@ namespace SeniorPro
             txt_Greutate.Click += txt_Greutate_Click;
             txt_Greutate.Leave += txt_Greutate_Leave;
 
-            // Accesează ConnectionString-ul din fișierul app.config
-            connectionString = ConfigurationManager.ConnectionStrings["SeniorProString"].ConnectionString;
-
-            // Inițializează conexiunea cu ConnectionString-ul obținut
-            con = new SqlConnection(connectionString);
-        }
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+         }
 
         private void txt_glicemie_Click(object sender, EventArgs e)
         {
@@ -182,9 +177,12 @@ namespace SeniorPro
                     {
                         cmd.Parameters.AddWithValue("@masa", 0);
                     }
-
+                    con.Close();
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
+                    cmd.Transaction = transaction;
                     cmd.ExecuteNonQuery();
-
+                    transaction.Commit();
                     MessageBox.Show("Înregistrare reușită!");
                     txt_glicemie.Hide();
                     btn_glicemieGata.Hide();
@@ -237,9 +235,14 @@ namespace SeniorPro
                         cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
                         cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
                         cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
+                    con.Close();
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
+                    cmd.Transaction = transaction;
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
 
-                        cmd.ExecuteNonQuery();
-
+               
                         MessageBox.Show("Înregistrare reușită!");
                         txt_ora_tensiune.Hide();
                         txt_tensiune_minima.Hide();
@@ -352,8 +355,12 @@ namespace SeniorPro
                     cmd.Parameters.AddWithValue("@id", utilizator);
                     cmd.Parameters.AddWithValue("@numar", Convert.ToInt32(txt_Greutate.Text));
                     cmd.Parameters.AddWithValue("@ziua", DateTime.Now.Date);
-
+                    con.Close();
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
+                    cmd.Transaction = transaction;
                     cmd.ExecuteNonQuery();
+                    transaction.Commit();
 
                     MessageBox.Show("Înregistrare reușită!");
                     txt_Greutate.Hide();
@@ -545,6 +552,13 @@ namespace SeniorPro
                 series1.Points.Add(point);
                 point.AxisLabel = date.ToString("dd/MM/yyyy");
             }
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            this.Close();
+            Application.Exit();
         }
 
         private void btn_glicemie_Click(object sender, EventArgs e)

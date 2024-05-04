@@ -29,66 +29,67 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tensiune));
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_save
-            // 
-            this.btn_save.BackColor = System.Drawing.Color.PowderBlue;
-            this.btn_save.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_save.Location = new System.Drawing.Point(587, 415);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(138, 38);
-            this.btn_save.TabIndex = 27;
-            this.btn_save.Text = "Salveaza";
-            this.btn_save.UseVisualStyleBackColor = false;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.BackColor = System.Drawing.Color.PowderBlue;
-            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.Location = new System.Drawing.Point(55, 415);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(138, 38);
-            this.btn_cancel.TabIndex = 26;
-            this.btn_cancel.Text = "Anuleaza";
-            this.btn_cancel.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.PowderBlue;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(55, 131);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(670, 278);
-            this.dataGridView1.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 48);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(341, 35);
+            this.label2.Size = new System.Drawing.Size(436, 35);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Actualizare valori tensiune";
+            this.label2.Text = "Actualizare valori tensiune pentru ";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 108);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(686, 243);
+            this.dataGridView1.TabIndex = 32;
+            // 
+            // btn_save
+            // 
+            this.btn_save.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btn_save.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+            this.btn_save.Location = new System.Drawing.Point(592, 357);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(112, 34);
+            this.btn_save.TabIndex = 34;
+            this.btn_save.Text = "Salveaza";
+            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.btn_delete.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+            this.btn_delete.Location = new System.Drawing.Point(12, 357);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(112, 34);
+            this.btn_delete.TabIndex = 35;
+            this.btn_delete.Text = "Sterge";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // Tensiune
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
-            this.ClientSize = new System.Drawing.Size(1008, 585);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(716, 454);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tensiune";
@@ -101,10 +102,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

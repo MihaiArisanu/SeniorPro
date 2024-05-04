@@ -10,14 +10,14 @@ namespace SeniorPro
     public partial class forgot : Form
     {
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con;
         string randomCode;
         public static string to;
         
         public forgot()
         {
             InitializeComponent();
-
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\SeniorProfi.mdf;Integrated Security=True;Connect Timeout=30");
             txt_set.UseSystemPasswordChar = true;
             txt_confirm.UseSystemPasswordChar = true;
             btn_show.Text = "Arata";

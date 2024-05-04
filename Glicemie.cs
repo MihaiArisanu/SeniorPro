@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SeniorPro
@@ -17,68 +11,78 @@ namespace SeniorPro
         int utilizator;
         string nume;
         SqlConnection con;
-        SqlDataAdapter da=new SqlDataAdapter();
-        DataTable dt;
-      
+        SqlDataAdapter da;
+        SqlCommand cmd;
+        DataSet ds;
 
         public Glicemie(int a, string b)
         {
             InitializeComponent();
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
-
+            
             nume = b;
             utilizator = a;
-            label_titlu.Text = label_titlu.Text + " " + b;
+
+            label_titlu.Text = label_titlu.Text + nume;
         }
 
-      
-        private void btn_save_Click(object sender, EventArgs e)
+        private void btn_delete_Click(object sender, EventArgs e)
         {
-           
-            SqlCommandBuilder cb = new SqlCommandBuilder(da);
-            da.Update(dt);
-            MessageBox.Show("Datele au fost salvate cu succes!", "Salvare reușită", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            dataGridView1.Refresh();
-            //con.Close();
-        }
-        private void Load_data()
-        {
-            string query = "SELECT IdGlicemie,IdUser, Glicemie, mancat as [Ai mancat?], data As Data, ora as Ora FROM Glicemii WHERE IdUser=" + utilizator;  //  Specificați explicit coloanele cheie
-            da = new SqlDataAdapter(query, con);
-            dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns["idGlicemie"].Visible = false;
-            dataGridView1.Columns["IdUser"].Visible = false;
-            //dataGridView1.AllowUserToAddRows = false;
-            //originalDataTable = dt.Copy();
-            // Salveaza starea originala a datelor pentru anularea modificarilor
+            bool ok = false;
+            int id = 0;
 
-        }
-        private void Glicemie_Load(object sender, EventArgs e)
-        {
-            con.Open();
-            Load_data();
-        }
-
-        private void btn_sterge_Click(object sender, EventArgs e)
-        {
-            // Verifică dacă există cel puțin un rând selectat în DataGridView
-            if (dataGridView1.SelectedRows.Count > 0)
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                // Obține rândul selectat
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                if (dataGridView1.Rows[i].Selected == true)
+                {
+                    id = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                    ok = true;
+                }
+            }
 
-                // Șterge rândul selectat din DataGridView
-                dataGridView1.Rows.Remove(selectedRow);
-                SqlCommandBuilder cb = new SqlCommandBuilder(da);
-                da.Update(dt);
-                dataGridView1.Refresh();
+            if (ok)
+            {
+                string q = "DELETE FROM Glicemii WHERE IdGlicemie = @id";
+                cmd = new SqlCommand(q, con);
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Stergere efectuata!");
             }
             else
             {
-                MessageBox.Show("Selectează mai întâi o înregistrare de șters.", "Avertizare", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Pentru a sterge trebuie sa selectati tot randul!", "Selectati tot randul", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            con.Open();
+            foreach (DataRow row in ds.Tables["Glicemii"].Rows)
+            {
+                row[1] = utilizator;
+            }
+            SqlCommandBuilder cb = new SqlCommandBuilder(da);
+            da.Update(ds.Tables["Glicemii"]);
+        }
+
+        private void LoadData()
+        {
+            string query = "SELECT IdGlicemie, IdUser, Glicemie As Glicemie, mancat As Mancat, data AS Data, ora AS Ora FROM Glicemii WHERE IdUser= " + utilizator; 
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds, "Glicemii");
+
+            dataGridView1.DataSource = ds.Tables["Glicemii"];
+            dataGridView1.Columns["IdGlicemie"].Visible = false;
+            dataGridView1.Columns["IdUser"].Visible = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+        }
+
+        private void Glicemie_Load(object sender, EventArgs e)
+        {
+            con.Open();
+            LoadData();
         }
     }
 }

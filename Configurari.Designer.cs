@@ -40,15 +40,13 @@ namespace SeniorPro
             this.btnSchema = new System.Windows.Forms.Button();
             this.btnContact = new System.Windows.Forms.Button();
             this.btnDatePersonale = new System.Windows.Forms.Button();
-            this.panelAmintiri = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnAdauga = new System.Windows.Forms.Button();
             this.btnAmintiri = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelValori.SuspendLayout();
-            this.panelAmintiri.SuspendLayout();
+            this.panelChildForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -61,7 +59,6 @@ namespace SeniorPro
             this.panelMenu.Controls.Add(this.btnSchema);
             this.panelMenu.Controls.Add(this.btnContact);
             this.panelMenu.Controls.Add(this.btnDatePersonale);
-            this.panelMenu.Controls.Add(this.panelAmintiri);
             this.panelMenu.Controls.Add(this.btnAmintiri);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -77,7 +74,7 @@ namespace SeniorPro
             this.panelValori.Controls.Add(this.Greutate);
             this.panelValori.Controls.Add(this.Glicemie);
             this.panelValori.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelValori.Location = new System.Drawing.Point(0, 444);
+            this.panelValori.Location = new System.Drawing.Point(0, 399);
             this.panelValori.Name = "panelValori";
             this.panelValori.Size = new System.Drawing.Size(196, 135);
             this.panelValori.TabIndex = 8;
@@ -130,7 +127,7 @@ namespace SeniorPro
             this.btn_Valori.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_Valori.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Valori.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btn_Valori.Location = new System.Drawing.Point(0, 399);
+            this.btn_Valori.Location = new System.Drawing.Point(0, 354);
             this.btn_Valori.Name = "btn_Valori";
             this.btn_Valori.Size = new System.Drawing.Size(196, 45);
             this.btn_Valori.TabIndex = 7;
@@ -146,7 +143,7 @@ namespace SeniorPro
             this.btnInapoi.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnInapoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInapoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.btnInapoi.Location = new System.Drawing.Point(0, 579);
+            this.btnInapoi.Location = new System.Drawing.Point(0, 534);
             this.btnInapoi.Name = "btnInapoi";
             this.btnInapoi.Size = new System.Drawing.Size(196, 45);
             this.btnInapoi.TabIndex = 1;
@@ -159,7 +156,7 @@ namespace SeniorPro
             this.btnSchema.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSchema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchema.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btnSchema.Location = new System.Drawing.Point(0, 354);
+            this.btnSchema.Location = new System.Drawing.Point(0, 309);
             this.btnSchema.Name = "btnSchema";
             this.btnSchema.Size = new System.Drawing.Size(196, 45);
             this.btnSchema.TabIndex = 6;
@@ -173,11 +170,11 @@ namespace SeniorPro
             this.btnContact.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContact.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btnContact.Location = new System.Drawing.Point(0, 309);
+            this.btnContact.Location = new System.Drawing.Point(0, 264);
             this.btnContact.Name = "btnContact";
             this.btnContact.Size = new System.Drawing.Size(196, 45);
             this.btnContact.TabIndex = 5;
-            this.btnContact.Text = "Persoane de contact";
+            this.btnContact.Text = "Persoane dragi";
             this.btnContact.UseVisualStyleBackColor = false;
             this.btnContact.Click += new System.EventHandler(this.btnContact_Click);
             // 
@@ -187,51 +184,13 @@ namespace SeniorPro
             this.btnDatePersonale.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDatePersonale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatePersonale.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btnDatePersonale.Location = new System.Drawing.Point(0, 264);
+            this.btnDatePersonale.Location = new System.Drawing.Point(0, 219);
             this.btnDatePersonale.Name = "btnDatePersonale";
             this.btnDatePersonale.Size = new System.Drawing.Size(196, 45);
             this.btnDatePersonale.TabIndex = 4;
             this.btnDatePersonale.Text = "Date Personale";
             this.btnDatePersonale.UseVisualStyleBackColor = false;
             this.btnDatePersonale.Click += new System.EventHandler(this.btnDatePersonale_Click);
-            // 
-            // panelAmintiri
-            // 
-            this.panelAmintiri.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.panelAmintiri.Controls.Add(this.button1);
-            this.panelAmintiri.Controls.Add(this.btnAdauga);
-            this.panelAmintiri.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAmintiri.Location = new System.Drawing.Point(0, 219);
-            this.panelAmintiri.Name = "panelAmintiri";
-            this.panelAmintiri.Size = new System.Drawing.Size(196, 45);
-            this.panelAmintiri.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Aquamarine;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.button1.Location = new System.Drawing.Point(0, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 45);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Adauga poze";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnAdauga
-            // 
-            this.btnAdauga.BackColor = System.Drawing.Color.Aquamarine;
-            this.btnAdauga.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdauga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdauga.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btnAdauga.Location = new System.Drawing.Point(0, 0);
-            this.btnAdauga.Name = "btnAdauga";
-            this.btnAdauga.Size = new System.Drawing.Size(196, 45);
-            this.btnAdauga.TabIndex = 0;
-            this.btnAdauga.Text = "Adauga poze";
-            this.btnAdauga.UseVisualStyleBackColor = false;
-            this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
             // 
             // btnAmintiri
             // 
@@ -259,10 +218,21 @@ namespace SeniorPro
             // 
             // panelChildForm
             // 
+            this.panelChildForm.Controls.Add(this.label1);
             this.panelChildForm.Location = new System.Drawing.Point(223, 12);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(734, 501);
+            this.panelChildForm.Size = new System.Drawing.Size(745, 513);
             this.panelChildForm.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(692, 37);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Actualizare valori pentru glicemie, greutate, tensiune";
             // 
             // Configurari
             // 
@@ -277,7 +247,8 @@ namespace SeniorPro
             this.Text = "Configurari";
             this.panelMenu.ResumeLayout(false);
             this.panelValori.ResumeLayout(false);
-            this.panelAmintiri.ResumeLayout(false);
+            this.panelChildForm.ResumeLayout(false);
+            this.panelChildForm.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -285,20 +256,18 @@ namespace SeniorPro
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel panelAmintiri;
         private System.Windows.Forms.Button btnAmintiri;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnAdauga;
         private System.Windows.Forms.Button btnSchema;
         private System.Windows.Forms.Button btnContact;
         private System.Windows.Forms.Button btnDatePersonale;
-        private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Panel panelValori;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button Greutate;
         private System.Windows.Forms.Button Glicemie;
         private System.Windows.Forms.Button btn_Valori;
         private System.Windows.Forms.Button btnInapoi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Label label1;
     }
 }

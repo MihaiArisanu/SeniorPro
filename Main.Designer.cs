@@ -82,6 +82,8 @@ namespace SeniorPro
             this.btn_tensiune = new System.Windows.Forms.Button();
             this.check_sarat = new System.Windows.Forms.CheckBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            //this.seniorProDataSet1 = new SeniorPro.SeniorProDataSet();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.tabPage_grafic_greutate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.tabPage_grafic_tensiune.SuspendLayout();
@@ -90,6 +92,7 @@ namespace SeniorPro
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage_valori.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.seniorProDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -581,10 +584,28 @@ namespace SeniorPro
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 21;
             // 
+            // seniorProDataSet1
+            // 
+           // this.seniorProDataSet1.DataSetName = "SeniorProDataSet";
+            //this.seniorProDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.Color.PowderBlue;
+            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.Location = new System.Drawing.Point(992, 29);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(138, 38);
+            this.btn_cancel.TabIndex = 26;
+            this.btn_cancel.Text = "La revedere!";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
             // Main
             // 
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1293, 731);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_Amintiri);
             this.Controls.Add(this.btn_vorbim);
             this.Controls.Add(this.btn_configurari);
@@ -605,6 +626,7 @@ namespace SeniorPro
             this.tabPage_valori.ResumeLayout(false);
             this.tabPage_valori.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            //((System.ComponentModel.ISupportInitialize)(this.seniorProDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,5 +676,7 @@ namespace SeniorPro
         private System.Windows.Forms.Button btn_tensiune;
         private System.Windows.Forms.CheckBox check_sarat;
         private System.Windows.Forms.TabControl tabControl1;
+        //private SeniorProDataSet seniorProDataSet1;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

@@ -22,15 +22,5 @@ namespace SeniorPro
             nume = b;
             utilizator = a;
         }
-
-        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

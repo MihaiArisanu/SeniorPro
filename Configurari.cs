@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
 
 namespace SeniorPro
@@ -17,6 +9,7 @@ namespace SeniorPro
         int utilizator;
         string nume;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+        bool ok = false;
 
         public Configurari(int a, string b)
         {
@@ -25,86 +18,41 @@ namespace SeniorPro
             utilizator = a;
             nume = b;
 
-            panelAmintiri.Visible = false;
-            panelValori.Visible = false;
-        }
-
-        private void btnAdauga_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30"))
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Imagini (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|Toate fișierele (*.*)|*.*";
-                openFileDialog.Multiselect = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string debugFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-
-                    if (!Directory.Exists(debugFolder))
-                    {
-                        Directory.CreateDirectory(debugFolder);
-                    }
-
-                    con.Open();
-
-                    foreach (string filePath in openFileDialog.FileNames)
-                    {
-                        try
-                        {
-                            string Cale = Application.StartupPath + @"\Images\" + Path.GetFileName(filePath);
-                            File.Copy(filePath, Cale);
-                            string insertQuery = "INSERT INTO Amintiri (CaleFisier, IdUser) VALUES (@CaleFisier, @IdU)";
-                            using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                            {
-                                cmd.Parameters.AddWithValue("@CaleFisier", Cale);
-                                cmd.Parameters.AddWithValue("@IdU", utilizator);
-
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Exista deja o imagine cu acest nume", "", MessageBoxButtons.OK);
-                        }
-                    }
-
-                    con.Close();
-                }
-            }
+            panelClose();
+            label1.Text = "Bine ai venit in configurari!";
+            label1.Visible = true;
         }
 
         private void btnAmintiri_Click(object sender, EventArgs e)
         {
-            if (panelAmintiri.Visible == false)
+            panelClose();
+            if(ok == false)
             {
-                panelAmintiri.Visible = true;
+                ok = true;
                 openChildFormInPanel(new AmintiriConfigurari(utilizator, nume));
             }
             else
             {
-                panelAmintiri.Visible = false;
+                panelClose();
+                ok = false;
             }
         }
 
         private void btnDatePersonale_Click(object sender, EventArgs e)
         {
-            panelAmintiri.Visible = false;
-            panelValori.Visible = false;
+            panelClose();
             openChildFormInPanel(new DatePersonale(utilizator, nume));
         }
 
         private void btnContact_Click(object sender, EventArgs e)
         {
-            panelAmintiri.Visible = false;
-            panelValori.Visible = false;
+            panelClose();
             openChildFormInPanel(new Contact(utilizator, nume));
         }
 
         private void btnSchema_Click(object sender, EventArgs e)
         {
-            panelAmintiri.Visible = false;
-            panelValori.Visible = false;
+            panelClose();
             openChildFormInPanel(new Schema(utilizator, nume));
         }
 
@@ -119,7 +67,9 @@ namespace SeniorPro
         private void openChildFormInPanel(Form childForm)
         {
             if (activeForm != null)
+            {
                 activeForm.Close();
+            }
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -132,37 +82,42 @@ namespace SeniorPro
 
         private void btn_Valori_Click(object sender, EventArgs e)
         {
-            panelValori.Visible = false;
-            if (panelValori.Visible == false)
+            panelClose();
+            if (ok == false)
             {
+                label1.Text = "Actualizare valori pentru glicemie, greutate, tensiune";
+                label1.Visible = true;
                 panelValori.Visible = true;
-                openChildFormInPanel(new AmintiriConfigurari(utilizator, nume));
+                ok = true;
             }
             else
             {
-                panelValori.Visible = false;
+                panelClose();
+                ok = false;
             }
         }
 
         private void Glicemie_Click(object sender, EventArgs e)
         {
-            panelValori.Visible=false;
-            panelAmintiri.Visible=false;
+            panelClose();
             openChildFormInPanel(new Glicemie(utilizator, nume));
         }
 
         private void Greutate_Click(object sender, EventArgs e)
         {
-            panelValori.Visible = false;
-            panelAmintiri.Visible = false;
+            panelClose();
             openChildFormInPanel(new Greutate(utilizator, nume));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            panelValori.Visible = false;
-            panelAmintiri.Visible = false;
+            panelClose();
             openChildFormInPanel(new Tensiune(utilizator, nume));
+        }
+
+        private void panelClose()
+        {
+            panelValori.Visible = false;
         }
     }
 }

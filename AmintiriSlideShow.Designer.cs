@@ -30,10 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Amintiri));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btn_inapoi = new System.Windows.Forms.Button();
-            this.btn_automat = new System.Windows.Forms.Button();
-            this.btn_manual = new System.Windows.Forms.Button();
             this.btn_inainte = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -43,15 +40,8 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(12, 61);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 411);
+            this.panel1.Size = new System.Drawing.Size(984, 447);
             this.panel1.TabIndex = 0;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 485);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(984, 23);
-            this.progressBar1.TabIndex = 1;
             // 
             // btn_inapoi
             // 
@@ -64,30 +54,6 @@
             this.btn_inapoi.Text = "Inapoi";
             this.btn_inapoi.UseVisualStyleBackColor = false;
             this.btn_inapoi.Click += new System.EventHandler(this.btn_inapoi_Click);
-            // 
-            // btn_automat
-            // 
-            this.btn_automat.BackColor = System.Drawing.Color.PowderBlue;
-            this.btn_automat.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btn_automat.Location = new System.Drawing.Point(448, 514);
-            this.btn_automat.Name = "btn_automat";
-            this.btn_automat.Size = new System.Drawing.Size(112, 34);
-            this.btn_automat.TabIndex = 3;
-            this.btn_automat.Text = "Automat";
-            this.btn_automat.UseVisualStyleBackColor = false;
-            this.btn_automat.Click += new System.EventHandler(this.btn_automat_Click);
-            // 
-            // btn_manual
-            // 
-            this.btn_manual.BackColor = System.Drawing.Color.PowderBlue;
-            this.btn_manual.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
-            this.btn_manual.Location = new System.Drawing.Point(448, 514);
-            this.btn_manual.Name = "btn_manual";
-            this.btn_manual.Size = new System.Drawing.Size(112, 34);
-            this.btn_manual.TabIndex = 5;
-            this.btn_manual.Text = "Manual";
-            this.btn_manual.UseVisualStyleBackColor = false;
-            this.btn_manual.Click += new System.EventHandler(this.btn_manual_Click);
             // 
             // btn_inainte
             // 
@@ -123,10 +89,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 585);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.btn_inainte);
-            this.Controls.Add(this.btn_manual);
-            this.Controls.Add(this.btn_automat);
             this.Controls.Add(this.btn_inapoi);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Amintiri";
@@ -139,10 +102,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btn_inapoi;
-        private System.Windows.Forms.Button btn_automat;
-        private System.Windows.Forms.Button btn_manual;
         private System.Windows.Forms.Button btn_inainte;
         private System.Windows.Forms.Button btn_back;
     }
