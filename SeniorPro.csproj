@@ -92,8 +92,40 @@
     <Compile Include="inregistrare.Designer.cs">
       <DependentUpon>inregistrare.cs</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
     <EmbeddedResource Include="Amintiri.resx">
       <DependentUpon>Amintiri.cs</DependentUpon>
+=======
+    <Compile Include="Schema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Schema.Designer.cs">
+      <DependentUpon>Schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tensiune.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tensiune.Designer.cs">
+      <DependentUpon>Tensiune.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tratament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tratament.Designer.cs">
+      <DependentUpon>tratament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vorbim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vorbim.Designer.cs">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AmintiriConfigurari.resx">
+      <DependentUpon>AmintiriConfigurari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmintiriSlideShow.resx">
+      <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
+>>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="Configurari.resx">
       <DependentUpon>Configurari.cs</DependentUpon>
@@ -122,6 +154,21 @@
     <EmbeddedResource Include="inregistrare.resx">
       <DependentUpon>inregistrare.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< Updated upstream
+=======
+    <EmbeddedResource Include="Schema.resx">
+      <DependentUpon>Schema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tensiune.resx">
+      <DependentUpon>Tensiune.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tratament.resx">
+      <DependentUpon>tratament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vorbim.resx">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Stashed changes
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
