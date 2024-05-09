@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Net.Http.Headers;
 using System.Windows.Forms;
 
 namespace SeniorPro
@@ -24,6 +23,7 @@ namespace SeniorPro
 
             label2.Text = label2.Text + nume;
         }
+
         private void Contact_Load(object sender, EventArgs e)
         {
             con.Open();

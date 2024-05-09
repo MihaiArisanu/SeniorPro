@@ -161,6 +161,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AmintiriSlideShow.resx">
       <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vorbim.Designer.cs">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AmintiriConfigurari.resx">
+      <DependentUpon>AmintiriConfigurari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmintiriSlideShow.resx">
+      <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
+>>>>>>> Stashed changes
     </EmbeddedResource>
     <EmbeddedResource Include="Configurari.resx">
       <DependentUpon>Configurari.cs</DependentUpon>
@@ -210,6 +221,12 @@
     <EmbeddedResource Include="Vorbim.resx">
       <DependentUpon>Vorbim.cs</DependentUpon>
     </EmbeddedResource>
+      <DependentUpon>tratament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vorbim.resx">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Stashed changes
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

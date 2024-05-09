@@ -1,14 +1,15 @@
 ﻿using System;
+<<<<<<< Updated upstream
 using System.Collections.Generic;
+=======
+>>>>>>> Stashed changes
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Configuration;
+=======
+>>>>>>> Stashed changes
 
 namespace SeniorPro
 {
@@ -66,7 +67,10 @@ namespace SeniorPro
             txt_Greutate.Click += txt_Greutate_Click;
             txt_Greutate.Leave += txt_Greutate_Leave;
 
+=======
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+            this.WindowState = FormWindowState.Maximized;
+>>>>>>> Stashed changes
          }
 
         private void txt_glicemie_Click(object sender, EventArgs e)
@@ -149,12 +153,10 @@ namespace SeniorPro
             }
             else if (!int.TryParse(txt_glicemie.Text, out int numericValue_glicemie))
             {
-                // Dacă textul introdus nu este numeric, poți afișa un mesaj de eroare sau să iei alte măsuri
                 MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă în câmpul glicemie !");
             }
             else if (!int.TryParse(txt_ora_glicemie.Text, out int numericValue_ora))
             {
-                // Dacă textul introdus nu este numeric, poți afișa un mesaj de eroare sau să iei alte măsuri
                 MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă în câmpul ora !");
             }
             else
@@ -375,6 +377,9 @@ namespace SeniorPro
                     con.Close();
                 }
             }
+=======
+                MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă în câmpul greutate!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+>>>>>>> Stashed changes
         }
 
         private void btnGreutate_Click(object sender, EventArgs e)
@@ -488,6 +493,78 @@ namespace SeniorPro
             if (string.IsNullOrWhiteSpace(txt_ora_tensiune.Text))
             {
                 txt_ora_tensiune.Text = ora2;
+                txt_Greutate.Text = txt4;
+            }
+        }
+
+        private void btn_ok3_Click(object sender, EventArgs e)
+        {
+            int nrluni = 6;
+
+            if (!string.IsNullOrWhiteSpace(textBox4.Text))
+            {
+                if (!int.TryParse(textBox4.Text, out nrluni))
+                {
+                    MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                textBox4.Text = "6";
+            }
+
+            con.Open();
+
+            string query = @"
+        SELECT 
+            AVG(NumarKg) AS GreutateMedie,
+            DATEPART(MONTH, data) AS Luna,
+            DATEPART(YEAR, data) AS An
+        FROM 
+            Greutate
+        WHERE 
+            IdUser = @id 
+            AND DATEADD(MONTH, @nrluni, data) >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0)
+        GROUP BY 
+            DATEPART(MONTH, data), 
+            DATEPART(YEAR, data) 
+        ORDER BY An, Luna";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            DataTable dt = new DataTable();
+
+            cmd.Parameters.AddWithValue("@id", utilizator);
+            cmd.Parameters.AddWithValue("@nrluni", nrluni - 1);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            con.Close();
+
+            Series seriegreutate = chart3.Series[0];
+            seriegreutate.ChartType = SeriesChartType.Column;
+            seriegreutate.Points.Clear();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                double greutateMedie = Convert.ToDouble(dt.Rows[i]["GreutateMedie"]);
+                int luna = Convert.ToInt32(dt.Rows[i]["Luna"]);
+                int an = Convert.ToInt32(dt.Rows[i]["An"]);
+
+                DateTime luna_an = new DateTime(an, luna, 1);
+                DataPoint point = new DataPoint(luna_an.ToOADate(), greutateMedie);
+                seriegreutate.Points.Add(point);
+                point.AxisLabel = luna_an.ToString("MMM \n yyyy");
+            }
+            adapter.Dispose();
+        }
+
+
+        private void txt_ora_tensiune_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_ora_tensiune.Text))
+            {
+                txt_ora_tensiune.Text = ora2;
+>>>>>>> Stashed changes
             }
         }
 
@@ -561,6 +638,15 @@ namespace SeniorPro
             Application.Exit();
         }
 
+        }
+
+        private void btn_tratament_Click(object sender, EventArgs e)
+        {
+            new tratament(utilizator, nume).Show();
+            this.Hide();
+        }
+
+>>>>>>> Stashed changes
         private void btn_glicemie_Click(object sender, EventArgs e)
         {
                 txt_glicemie.Show();

@@ -42,7 +42,6 @@ namespace SeniorPro
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_configurari = new System.Windows.Forms.Button();
             this.btn_vorbim = new System.Windows.Forms.Button();
             this.btn_Amintiri = new System.Windows.Forms.Button();
             this.tabPage_tratament = new System.Windows.Forms.TabPage();
@@ -52,6 +51,24 @@ namespace SeniorPro
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+=======
+            this.btn_configurari = new System.Windows.Forms.Button();
+            this.btn_vorbim = new System.Windows.Forms.Button();
+            this.btn_Amintiri = new System.Windows.Forms.Button();
+            this.tabPage_grafic_greutate = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btn_ok3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tabPage_grafic_tensiune = new System.Windows.Forms.TabPage();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_ok2 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
             this.tabPage_grafic_tensiune = new System.Windows.Forms.TabPage();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label5 = new System.Windows.Forms.Label();
@@ -93,6 +110,29 @@ namespace SeniorPro
             this.tabPage_valori.SuspendLayout();
             this.tabControl1.SuspendLayout();
             //((System.ComponentModel.ISupportInitialize)(this.seniorProDataSet1)).BeginInit();
+            this.txt_tensiune_minima = new System.Windows.Forms.TextBox();
+            this.txt_tensiune_maxima = new System.Windows.Forms.TextBox();
+            this.btn_Greutate = new System.Windows.Forms.Button();
+            this.btn_glicemie = new System.Windows.Forms.Button();
+            this.check_efort = new System.Windows.Forms.CheckBox();
+            this.check_mancat = new System.Windows.Forms.CheckBox();
+            this.check_suparat = new System.Windows.Forms.CheckBox();
+            this.btn_glicemieGata = new System.Windows.Forms.Button();
+            this.btn_tensiuneGata = new System.Windows.Forms.Button();
+            this.btn_tensiune = new System.Windows.Forms.Button();
+            this.check_sarat = new System.Windows.Forms.CheckBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_tratament = new System.Windows.Forms.Button();
+            this.tabPage_grafic_greutate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            this.tabPage_grafic_tensiune.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            this.tabPage_grafic_glicemie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tabPage_valori.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +172,10 @@ namespace SeniorPro
             this.btn_vorbim.Click += new System.EventHandler(this.btn_vorbim_Click);
             // 
             // btn_Amintiri
+<<<<<<< Updated upstream
+=======
+            // tabPage_grafic_greutate
+>>>>>>> Stashed changes
             // 
             this.btn_Amintiri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Amintiri.BackColor = System.Drawing.Color.PowderBlue;
@@ -568,7 +612,7 @@ namespace SeniorPro
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+
             this.tabControl1.Controls.Add(this.tabPage_valori);
             this.tabControl1.Controls.Add(this.tabPage_grafic_glicemie);
             this.tabControl1.Controls.Add(this.tabPage_grafic_tensiune);
@@ -600,20 +644,68 @@ namespace SeniorPro
             this.btn_cancel.Text = "La revedere!";
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+=======
+            this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tabControl1.Controls.Add(this.tabPage_valori);
+            this.tabControl1.Controls.Add(this.tabPage_grafic_glicemie);
+            this.tabControl1.Controls.Add(this.tabPage_grafic_tensiune);
+            this.tabControl1.Controls.Add(this.tabPage_grafic_greutate);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tabControl1.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.tabControl1.Location = new System.Drawing.Point(91, 73);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(966, 616);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabControl1.TabIndex = 21;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_cancel.BackColor = System.Drawing.Color.PowderBlue;
+            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.Location = new System.Drawing.Point(1143, 12);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(138, 38);
+            this.btn_cancel.TabIndex = 26;
+            this.btn_cancel.Text = "La revedere!";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+>>>>>>> Stashed changes
+            // 
+            // btn_tratament
+            // 
+            this.btn_tratament.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_tratament.BackColor = System.Drawing.Color.PowderBlue;
+            this.btn_tratament.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tratament.Location = new System.Drawing.Point(1143, 593);
+            this.btn_tratament.Name = "btn_tratament";
+            this.btn_tratament.Size = new System.Drawing.Size(138, 38);
+            this.btn_tratament.TabIndex = 27;
+            this.btn_tratament.Text = "Tratament";
+            this.btn_tratament.UseVisualStyleBackColor = false;
+            this.btn_tratament.Click += new System.EventHandler(this.btn_tratament_Click);
             // 
             // Main
             // 
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(1293, 731);
             this.Controls.Add(this.btn_cancel);
+
+            this.ClientSize = new System.Drawing.Size(1293, 731);
+            this.Controls.Add(this.btn_tratament);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_Amintiri);
             this.Controls.Add(this.btn_vorbim);
+>>>>>>> Stashed changes
             this.Controls.Add(this.btn_configurari);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
+<<<<<<< Updated upstream
             this.tabPage_grafic_greutate.ResumeLayout(false);
             this.tabPage_grafic_greutate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
@@ -622,6 +714,11 @@ namespace SeniorPro
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.tabPage_grafic_glicemie.ResumeLayout(false);
             this.tabPage_grafic_glicemie.PerformLayout();
+
+            this.tabPage_valori.ResumeLayout(false);
+            this.tabPage_valori.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage_valori.ResumeLayout(false);
             this.tabPage_valori.PerformLayout();
@@ -646,6 +743,17 @@ namespace SeniorPro
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
+
+        private System.Windows.Forms.Button btn_configurari;
+        private System.Windows.Forms.Button btn_vorbim;
+        private System.Windows.Forms.Button btn_Amintiri;
+        private System.Windows.Forms.TabPage tabPage_grafic_greutate;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.Button btn_ok3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+>>>>>>> Stashed changes
         private System.Windows.Forms.TabPage tabPage_grafic_tensiune;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.Label label5;
@@ -678,5 +786,35 @@ namespace SeniorPro
         private System.Windows.Forms.TabControl tabControl1;
         //private SeniorProDataSet seniorProDataSet1;
         private System.Windows.Forms.Button btn_cancel;
+<<<<<<< Updated upstream
+=======
+        private System.Windows.Forms.TabPage tabPage_grafic_glicemie;
+        private System.Windows.Forms.Button btn_ok_glicemie;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TabPage tabPage_valori;
+        private System.Windows.Forms.Button btn_GreutateGata;
+        private System.Windows.Forms.TextBox txt_Greutate;
+        private System.Windows.Forms.TextBox txt_ora_glicemie;
+        private System.Windows.Forms.TextBox txt_ora_tensiune;
+        private System.Windows.Forms.TextBox txt_glicemie;
+        private System.Windows.Forms.TextBox txt_tensiune_minima;
+        private System.Windows.Forms.TextBox txt_tensiune_maxima;
+        private System.Windows.Forms.Button btn_Greutate;
+        private System.Windows.Forms.Button btn_glicemie;
+        private System.Windows.Forms.CheckBox check_efort;
+        private System.Windows.Forms.CheckBox check_mancat;
+        private System.Windows.Forms.CheckBox check_suparat;
+        private System.Windows.Forms.Button btn_glicemieGata;
+        private System.Windows.Forms.Button btn_tensiuneGata;
+        private System.Windows.Forms.Button btn_tensiune;
+        private System.Windows.Forms.CheckBox check_sarat;
+        private System.Windows.Forms.TabControl tabControl1;
+        //private SeniorProDataSet seniorProDataSet1;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_tratament;
+>>>>>>> Stashed changes
     }
 }
