@@ -1,15 +1,23 @@
 ﻿using System;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+using System.Collections.Generic;
 using System.ComponentModel;
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
-using System.Configuration;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 using System.IO;
 =======
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes
 
 namespace SeniorPro
@@ -85,6 +93,9 @@ namespace SeniorPro
 =======
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
             this.WindowState = FormWindowState.Maximized;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
 
@@ -235,13 +246,39 @@ namespace SeniorPro
             {
                 try
                 {
-                    con.Open();
-                        string query = "INSERT INTO Tensiuni (IdUser, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+<<<<<<< Updated upstream
+                    try
+                    {
+                        con.Open();
                         string query = "INSERT INTO Tensiuni (Id, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+=======
+                    con.Open();
                     string query = "INSERT INTO Tensiuni (IdUser, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+>>>>>>> Stashed changes
                         "VALUES (@id, @maxima, @minima, @ziua, @sarat, @suparat, @efort, @ora)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
+<<<<<<< Updated upstream
+                        cmd.Parameters.AddWithValue("@id", utilizator);
+                        cmd.Parameters.AddWithValue("@minima", numericValue_tensiuneMinima);
+                        cmd.Parameters.AddWithValue("@maxima", numericValue_tensiuneMaxima);
+                        cmd.Parameters.AddWithValue("@ziua", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@ora", numericValue_ora);
+                        cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Înregistrare reușită!");
+                        txt_ora_tensiune.Hide();
+                        txt_tensiune_minima.Hide();
+                        txt_tensiune_maxima.Hide();
+                        btn_tensiuneGata.Hide();
+                        check_sarat.Hide();
+                        check_suparat.Hide();
+                        check_efort.Hide();
+=======
                     cmd.Parameters.AddWithValue("@id", utilizator);
                     cmd.Parameters.AddWithValue("@minima", numericValue_tensiuneMinima);
                     cmd.Parameters.AddWithValue("@maxima", numericValue_tensiuneMaxima);
@@ -250,8 +287,13 @@ namespace SeniorPro
                     cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
                     cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
                     cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
+                    con.Close();
+                    con.Open();
+                    SqlTransaction transaction = con.BeginTransaction();
+                    cmd.Transaction = transaction;
+                    cmd.ExecuteNonQuery();
+                    transaction.Commit();
 
-                        cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Înregistrare reușită!");
                     txt_ora_tensiune.Hide();
@@ -261,6 +303,7 @@ namespace SeniorPro
                     check_sarat.Hide();
                     check_suparat.Hide();
                     check_efort.Hide();
+>>>>>>> Stashed changes
                 }
                 catch (Exception ex)
                 {
@@ -299,9 +342,12 @@ namespace SeniorPro
                 "WHERE data >= DATEADD(DAY, -1 * @nrzile, GETDATE()) AND Id = @id GROUP BY data) T2 " +
                 "ON T1.data = T2.data AND T1.TA_Sistolica= T2.MaxSistolica order by T1.data";
 
-            
+<<<<<<< Updated upstream
             DataSet ds0 = new DataSet();
+=======
 
+            DataTable dt0 = new DataTable();
+>>>>>>> Stashed changes
             SqlCommand cmd0 = new SqlCommand(query0, con);
             cmd0.Parameters.AddWithValue("@id", utilizator);
             cmd0.Parameters.AddWithValue("@nrzile", nrzile);
@@ -320,10 +366,17 @@ namespace SeniorPro
 
             for (int i = 0; i < ds0.Tables[0].Rows.Count; i++)
             {
+<<<<<<< Updated upstream
                 DateTime date = (DateTime)ds0.Tables[0].Rows[i]["data"];
                 int sistolica = Convert.ToInt32(ds0.Tables[0].Rows[i]["TA_Sistolica"]);
                 int diastolica = Convert.ToInt32(ds0.Tables[0].Rows[i]["TA_Diastolica"]);
+                
+=======
+                DateTime date = (DateTime)dt0.Rows[i]["data"];
+                int sistolica = Convert.ToInt32(dt0.Rows[i]["TA_Sistolica"]);
+                int diastolica = Convert.ToInt32(dt0.Rows[i]["TA_Diastolica"]);
 
+>>>>>>> Stashed changes
                 DataPoint pointSistolica = new DataPoint(date.ToOADate(), sistolica);
                 seriesSistolica.Points.Add(pointSistolica);
                 DataPoint pointDiastolica = new DataPoint(date.ToOADate(), diastolica);
@@ -343,7 +396,12 @@ namespace SeniorPro
             }
             adapter0.Dispose();
         }
+<<<<<<< Updated upstream
+
         private void txt_ora_tensiune_Leave(object sender, EventArgs e)
+=======
+        private void btnGreutateGata_Click(object sender, EventArgs e)
+>>>>>>> Stashed changes
         {
             if (string.IsNullOrWhiteSpace(txt_ora_tensiune.Text))
             {
@@ -534,7 +592,11 @@ namespace SeniorPro
 
         private void btn_ok_glicemie_Click(object sender, EventArgs e) // FillChartGlicemie
         {
+<<<<<<< Updated upstream
+            int nrzile = 30; // Valoare implicită
+=======
             int nrzile = 7;
+>>>>>>> Stashed changes
 
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -606,6 +668,13 @@ namespace SeniorPro
 
         private void btn_tratament_Click(object sender, EventArgs e)
         {
+<<<<<<< Updated upstream
+            new tratament(utilizator, nume).Show();
+            this.Hide();
+        }
+
+>>>>>>> Stashed changes
+=======
             Hide();
             new tratament(utilizator, nume).Show(); this.Hide();
         }

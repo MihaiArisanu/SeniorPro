@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
+
 namespace SeniorPro
 {
     public partial class Intro : Form

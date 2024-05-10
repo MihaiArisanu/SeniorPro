@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 
+
 namespace SeniorPro
 {
     public partial class Configurari : Form

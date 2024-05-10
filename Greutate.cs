@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace SeniorPro
 {
-    public partial class Contact : Form
+    public partial class Greutate : Form
     {
         int utilizator;
         string nume;
@@ -15,45 +15,15 @@ namespace SeniorPro
         SqlCommand cmd;
         DataSet ds;
 
-        public Contact(int a, string b)
+        public Greutate(int a, string b)
         {
             InitializeComponent();
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+            
             nume = b;
             utilizator = a;
 
             label2.Text = label2.Text + nume;
-        }
-
-        private void Contact_Load(object sender, EventArgs e)
-        {
-            con.Open();
-            LoadData();
-        }
-
-        private void LoadData()
-        {
-            string query = "SELECT idpers, IdUser, nume As Nume, data_nasterii As [Data nasterii], email, telefon FROM Persoane WHERE IdUser= " + utilizator; // Specificați explicit coloanele cheie
-            da = new SqlDataAdapter(query, con);
-            ds = new DataSet();
-            da.Fill(ds, "Persoane");
-
-            dataGridView1.DataSource = ds.Tables["Persoane"];
-            dataGridView1.Columns["idpers"].Visible = false;
-            dataGridView1.Columns["IdUser"].Visible = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-        }
-
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            con.Close();
-            con.Open();
-            foreach (DataRow row in ds.Tables["Persoane"].Rows)
-            {
-                row[1] = utilizator;
-            }
-            SqlCommandBuilder cb = new SqlCommandBuilder(da);
-            da.Update(ds.Tables["Persoane"]);
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -69,10 +39,10 @@ namespace SeniorPro
                     ok = true;
                 }
             }
-
-            if (ok) 
+     
+            if (ok)
             {
-                string q = "DELETE FROM Persoane WHERE idpers = @id";
+                string q = "DELETE FROM Greutate WHERE IdGreutate = @id";
                 cmd = new SqlCommand(q, con);
                 cmd.Parameters.AddWithValue("id", id);
                 cmd.ExecuteNonQuery();
@@ -83,5 +53,38 @@ namespace SeniorPro
                 MessageBox.Show("Pentru a sterge trebuie sa selectati tot randul!", "Selectati tot randul", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            con.Close();
+            con.Open();
+            foreach (DataRow row in ds.Tables["Greutate"].Rows)
+            {
+                row[1] = utilizator;
+            }
+            SqlCommandBuilder cb = new SqlCommandBuilder(da);
+            da.Update(ds.Tables["Greutate"]);
+        }
+
+        private void LoadData()
+        {
+            string query = "SELECT IdGreutate, IdUser, NumarKg As [Numar Kg], data As Data FROM Greutate WHERE IdUser= " + utilizator; // Specificați explicit coloanele cheie
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds, "Greutate");
+
+            dataGridView1.DataSource = ds.Tables["Greutate"];
+            dataGridView1.Columns["IdGreutate"].Visible = false;
+            dataGridView1.Columns["IdUser"].Visible = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+        }
+
+        private void Greutate_Load(object sender, EventArgs e)
+        {
+            con.Open();
+            LoadData();
+        }
     }
 }
+
+

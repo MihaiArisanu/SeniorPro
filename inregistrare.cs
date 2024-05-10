@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-<<<<<<< Updated upstream
+using System.Configuration;
 
 =======
 >>>>>>> Stashed changes
@@ -74,7 +74,7 @@ public partial class inregistrare : Form
                 {
                     con.Open();
 
-                    string query = "INSERT INTO Utilizatori (nume, parola, email, data_nasterii, telefon) VALUES (@nickname,  @pass, @email, @dn, @phone)";
+                    string query = "INSERT INTO Utilizatori (nume, parola, email, data_nasterii, telefon, numeBot, accept) VALUES (@nickname,  @pass, @email, @dn, @phone, @bot, @accept)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@nickname", txt_nickname.Text);
@@ -82,6 +82,8 @@ public partial class inregistrare : Form
                     cmd.Parameters.AddWithValue("@pass", txt_pass.Text);
                     cmd.Parameters.AddWithValue("@phone", txt_phone.Text);
                     cmd.Parameters.AddWithValue("@dn", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@bot", "Chaty");
+                    cmd.Parameters.AddWithValue("@accept", false);
                     cmd.ExecuteNonQuery();
 
                      MessageBox.Show("Înregistrare reușită!");

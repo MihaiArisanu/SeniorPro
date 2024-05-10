@@ -16,7 +16,14 @@ namespace SeniorPro
             txt_pass.UseSystemPasswordChar = true;
             btn_show_hide.Text = "Arata";
 
+<<<<<<< Updated upstream
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+=======
             txt_email.Text = "mihai@yahoo.com";
+            txt_pass.Text = "123";
+
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+>>>>>>> Stashed changes
             con.Open();
 
             txt_email.Text = "lmiana@yahoo.com";

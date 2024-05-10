@@ -143,14 +143,22 @@ namespace SeniorPro
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage_valori.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.seniorProDataSet1)).BeginInit();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Italic);
+<<<<<<< Updated upstream
+            this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(183, 23);
+=======
+            this.label1.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Italic);
+            this.label1.Location = new System.Drawing.Point(444, 12);
+>>>>>>> Stashed changes
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 49);
             this.label1.TabIndex = 0;
@@ -188,14 +196,10 @@ namespace SeniorPro
             this.txt_tensiune_maxima.TabIndex = 11;
             this.txt_tensiune_maxima.Text = "Maxima";
             // 
-            // tabPage_tratament
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             // check_suparat
-            this.tabPage_tratament.BackColor = System.Drawing.Color.PowderBlue;
-            this.tabPage_tratament.Location = new System.Drawing.Point(4, 31);
-            this.tabPage_tratament.Name = "tabPage_tratament";
-            this.tabPage_tratament.Size = new System.Drawing.Size(958, 581);
-            this.tabPage_tratament.TabIndex = 4;
-            this.tabPage_tratament.Text = "Medicamente";
+            // 
             this.check_suparat.AutoSize = true;
             this.check_suparat.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.check_suparat.Location = new System.Drawing.Point(149, 281);
@@ -204,8 +208,11 @@ namespace SeniorPro
             this.check_suparat.TabIndex = 14;
             this.check_suparat.Text = "Te-ai suparat?";
             this.check_suparat.UseVisualStyleBackColor = true;
+            // 
             // check_efort
 =======
+=======
+>>>>>>> Stashed changes
             // tabPage_grafic_greutate
 >>>>>>> Stashed changes
             // 
@@ -692,9 +699,11 @@ namespace SeniorPro
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.BackColor = System.Drawing.Color.PowderBlue;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< Updated upstream
             this.btn_cancel.Location = new System.Drawing.Point(1143, 12);
+=======
             this.btn_cancel.Location = new System.Drawing.Point(1143, 21);
-            this.btn_cancel.Location = new System.Drawing.Point(992, 29);
+>>>>>>> Stashed changes
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(138, 38);
             this.btn_cancel.TabIndex = 26;
@@ -765,7 +774,10 @@ namespace SeniorPro
             this.tabPage_valori.ResumeLayout(false);
             this.tabPage_valori.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            //((System.ComponentModel.ISupportInitialize)(this.seniorProDataSet1)).EndInit();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -860,6 +872,9 @@ namespace SeniorPro
         //private SeniorProDataSet seniorProDataSet1;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_tratament;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }

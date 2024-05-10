@@ -66,6 +66,19 @@
     <Compile Include="forgot.Designer.cs">
       <DependentUpon>forgot.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imagini.cs" />
+    <Compile Include="Glicemie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Glicemie.Designer.cs">
+      <DependentUpon>Glicemie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Greutate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Greutate.Designer.cs">
+      <DependentUpon>Greutate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Intro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,7 +125,10 @@
     </Compile>
     <Compile Include="tratament.Designer.cs">
       <DependentUpon>tratament.cs</DependentUpon>
-	</Compile>
+	</Compile>  
+    <Compile Include="Tratament.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tratament.Designer.cs">
       <DependentUpon>Tratament.cs</DependentUpon>
     </Compile>
@@ -161,11 +177,11 @@
     <EmbeddedResource Include="Tensiune.resx">
       <DependentUpon>Tensiune.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tratament.resx">
-      <DependentUpon>Tratament.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="tratament.resx">
       <DependentUpon>tratament.cs</DependentUpon>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Tratament.resx">
+      <DependentUpon>Tratament.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vorbim.resx">
       <DependentUpon>Vorbim.cs</DependentUpon>
