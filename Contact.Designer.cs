@@ -47,12 +47,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.PowderBlue;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(64, 150);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 86);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(604, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(629, 265);
             this.dataGridView1.TabIndex = 5;
             // 
             // btn_save
@@ -60,6 +64,7 @@
             this.btn_save.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btn_save.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.btn_save.Location = new System.Drawing.Point(592, 357);
+            this.btn_save.Location = new System.Drawing.Point(557, 385);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(112, 34);
             this.btn_save.TabIndex = 6;
@@ -72,6 +77,7 @@
             this.btn_delete.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btn_delete.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.btn_delete.Location = new System.Drawing.Point(12, 357);
+            this.btn_delete.Location = new System.Drawing.Point(40, 385);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(112, 34);
             this.btn_delete.TabIndex = 7;

@@ -83,11 +83,19 @@
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(383, 71);
+<<<<<<< HEAD
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.Size = new System.Drawing.Size(326, 173);
+=======
+            this.dataGridView2.Location = new System.Drawing.Point(383, 45);
             this.dataGridView2.Location = new System.Drawing.Point(8, 45);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 30;
             this.dataGridView2.Size = new System.Drawing.Size(326, 173);
+            this.dataGridView2.Size = new System.Drawing.Size(326, 187);
             this.dataGridView2.Size = new System.Drawing.Size(714, 353);
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             this.dataGridView2.TabIndex = 33;
             // 
             // dataGridView3
@@ -97,11 +105,19 @@
             this.dataGridView3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(12, 302);
+<<<<<<< HEAD
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 51;
+            this.dataGridView3.Size = new System.Drawing.Size(326, 163);
+=======
+            this.dataGridView3.Location = new System.Drawing.Point(12, 262);
             this.dataGridView3.Location = new System.Drawing.Point(8, 45);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 30;
             this.dataGridView3.Size = new System.Drawing.Size(326, 163);
+            this.dataGridView3.Size = new System.Drawing.Size(326, 187);
             this.dataGridView3.Size = new System.Drawing.Size(714, 353);
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             this.dataGridView3.TabIndex = 34;
             // 
             // dataGridView4
@@ -111,20 +127,64 @@
             this.dataGridView4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(383, 302);
+<<<<<<< HEAD
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 51;
+            this.dataGridView4.Size = new System.Drawing.Size(326, 163);
+            this.dataGridView4.TabIndex = 35;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 24);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Dimineata";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+            this.label3.Location = new System.Drawing.Point(385, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 24);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "La pranz";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+            this.label4.Location = new System.Drawing.Point(379, 275);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 24);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "La nevoie";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
+=======
+            this.dataGridView4.Location = new System.Drawing.Point(383, 262);
             this.dataGridView4.Location = new System.Drawing.Point(8, 45);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 30;
             this.dataGridView4.Size = new System.Drawing.Size(326, 163);
             this.dataGridView4.Size = new System.Drawing.Size(714, 407);
+            this.dataGridView4.Size = new System.Drawing.Size(326, 187);
             this.dataGridView4.TabIndex = 35;
             // 
             this.label1.Location = new System.Drawing.Point(12, 39);
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Location = new System.Drawing.Point(12, 13);
             this.label3.Location = new System.Drawing.Point(385, 41);
-            this.label3.Location = new System.Drawing.Point(385, 41);
+            this.label3.Location = new System.Drawing.Point(385, 15);
             this.label4.Location = new System.Drawing.Point(379, 275);
-            this.label4.Location = new System.Drawing.Point(379, 275);
+            this.label4.Location = new System.Drawing.Point(379, 235);
             this.label5.Location = new System.Drawing.Point(12, 275);
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             this.label5.Location = new System.Drawing.Point(12, 235);
             // btn_delete
             // 
@@ -234,11 +294,7 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.BindingSource seniorProDataSetBindingSource;
         //private SeniorProDataSet seniorProDataSet;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
@@ -246,6 +302,8 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

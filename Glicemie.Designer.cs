@@ -48,12 +48,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.PowderBlue;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(64, 150);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 74);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(604, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(700, 375);
             this.dataGridView1.TabIndex = 32;
             // 
             // btn_save
@@ -61,6 +65,7 @@
             this.btn_save.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btn_save.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.btn_save.Location = new System.Drawing.Point(592, 357);
+            this.btn_save.Location = new System.Drawing.Point(582, 455);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(112, 34);
             this.btn_save.TabIndex = 34;
@@ -73,6 +78,7 @@
             this.btn_delete.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btn_delete.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.btn_delete.Location = new System.Drawing.Point(12, 357);
+            this.btn_delete.Location = new System.Drawing.Point(18, 455);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(112, 34);
             this.btn_delete.TabIndex = 35;
@@ -86,6 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(716, 454);
+            this.ClientSize = new System.Drawing.Size(734, 501);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.dataGridView1);

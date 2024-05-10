@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+
 namespace SeniorPro
 {
     public partial class tratament : Form
@@ -11,9 +12,11 @@ namespace SeniorPro
         SqlDataReader reader;
         SqlCommand cmd;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+        
         public tratament(int a, string b)
         {
             InitializeComponent();
+
             nume = b;
             utilizator = a;
             lbl_dimineata.Text = "";
@@ -24,7 +27,6 @@ namespace SeniorPro
             lbl_seara.Visible = false;
             lbl_nevoie.Text = "";
             lbl_nevoie.Visible = false;
-      
         }
 
         private void tratament_Load(object sender, EventArgs e)
@@ -41,11 +43,11 @@ namespace SeniorPro
             while (reader.Read())
 
             {
-            
+
                 if (reader[4].ToString() == "dimineata")
                 {
                     if (reader[5].ToString() == "inainte")
-                       q1 = q1 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                        q1 = q1 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
                     else
                         if (reader[5].ToString() == "dupa")
                         q2 = q2 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
@@ -58,7 +60,7 @@ namespace SeniorPro
                     if (reader[5].ToString() == "inainte")
                     {
                         s1 = s1 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
-                     
+
                     }
                     else
                         if (reader[5].ToString() == "dupa")
@@ -70,31 +72,31 @@ namespace SeniorPro
                      if (reader[4].ToString() == "seara")
                 {
                     if (reader[5].ToString() == "inainte")
-                        w1 = w1+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                        w1 = w1 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
                     else
                         if (reader[5].ToString() == "dupa")
-                        w2 = w2+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                        w2 = w2 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
                     else
-                       w3 = w3+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                        w3 = w3 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
                 }
                 else
                 {
-                        if (reader[5].ToString() == "inainte")
-                            v1 = v1+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
-                        else
-                            if (reader[2].ToString() == "dupa")
-                            v2 = v2+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
-                        else
-                            v3 = v3+reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                    if (reader[5].ToString() == "inainte")
+                        v1 = v1 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                    else
+                        if (reader[2].ToString() == "dupa")
+                        v2 = v2 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
+                    else
+                        v3 = v3 + reader[3].ToString() + " " + reader[2].ToString() + " " + reader[6].ToString() + "\n";
                 }
-             }
+            }
             if (q1 != "")
-                lbl_dimineata.Text = lbl_dimineata.Text+ "  INAINTE DE MASA\n" + q1;
+                lbl_dimineata.Text = lbl_dimineata.Text + "  INAINTE DE MASA\n" + q1;
             if (q2 != "")
                 lbl_dimineata.Text = lbl_dimineata.Text + "  \nDUPA MASA\n" + q2;
             if (q3 != "")
                 lbl_dimineata.Text = lbl_dimineata.Text + "\nINAINTE/ DUPA MASA\n" + q3;
-           if (s1 != "")
+            if (s1 != "")
                 lbl_pranz.Text = lbl_pranz.Text + "  INAINTE DE MASA\n" + s1;
             if (s2 != "")
                 lbl_pranz.Text = lbl_pranz.Text + "  \nDUPA MASA\n" + s2;
@@ -140,6 +142,12 @@ namespace SeniorPro
         }
 
         private void btn_back_Click(object sender, EventArgs e)
+        {
+            Close();
+            new Main(utilizator, nume).Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             Close();
             new Main(utilizator, nume).Show();

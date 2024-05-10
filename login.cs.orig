@@ -16,9 +16,14 @@ namespace SeniorPro
             txt_pass.UseSystemPasswordChar = true;
             btn_show_hide.Text = "Arata";
 
+<<<<<<< HEAD
             txt_email.Text = "lmiana@yahoo.com";  //TODO  
+=======
             txt_email.Text = "mihai@yahoo.com";
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+            con.Open();
+
+            txt_email.Text = "lmiana@yahoo.com";
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             txt_pass.Text = "123";
 
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");

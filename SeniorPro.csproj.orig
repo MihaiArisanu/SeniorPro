@@ -100,6 +100,7 @@
     <Compile Include="forgot.Designer.cs">
       <DependentUpon>forgot.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Glicemie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +113,9 @@
     <Compile Include="Greutate.Designer.cs">
       <DependentUpon>Greutate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imagini.cs" />
+=======
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
     <Compile Include="Intro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +142,12 @@
     <Compile Include="inregistrare.Designer.cs">
       <DependentUpon>inregistrare.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Amintiri.resx">
+      <DependentUpon>Amintiri.cs</DependentUpon>
+	</EmbeddedResource>
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
     <Compile Include="Schema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,13 +160,25 @@
     <Compile Include="Tensiune.Designer.cs">
       <DependentUpon>Tensiune.cs</DependentUpon>
     </Compile>
-    <Compile Include="tratament.cs">
+    <Compile Include="Vorbim.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Vorbim.Designer.cs">
+      <DependentUpon>Vorbim.cs</DependentUpon>
+=======
     <Compile Include="tratament.Designer.cs">
       <DependentUpon>tratament.cs</DependentUpon>
+	</Compile>
+    <Compile Include="Tratament.Designer.cs">
+      <DependentUpon>Tratament.cs</DependentUpon>
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
     </Compile>
-    <Compile Include="Vorbim.cs">
+    <EmbeddedResource Include="AmintiriConfigurari.resx">
+      <DependentUpon>AmintiriConfigurari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmintiriSlideShow.resx">
+      <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vorbim.Designer.cs">
@@ -167,11 +189,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AmintiriSlideShow.resx">
       <DependentUpon>AmintiriSlideShow.cs</DependentUpon>
-      <SubType>Form</SubType>
     </EmbeddedResource>
-    <Compile Include="Vorbim.Designer.cs">
-      <DependentUpon>Vorbim.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Configurari.resx">
       <DependentUpon>Configurari.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,11 +235,20 @@
     <EmbeddedResource Include="Tensiune.resx">
       <DependentUpon>Tensiune.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Vorbim.resx">
       <DependentUpon>Vorbim.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <EmbeddedResource Include="Tratament.resx">
+      <DependentUpon>Tratament.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tratament.resx">
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
       <DependentUpon>tratament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vorbim.resx">
+      <DependentUpon>Vorbim.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

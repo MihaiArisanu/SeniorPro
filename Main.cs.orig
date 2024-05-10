@@ -1,8 +1,23 @@
 ﻿using System;
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+using System.Collections.Generic;
+=======
+using System.ComponentModel;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
+=======
+>>>>>>> Stashed changes
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Configuration;
+<<<<<<< HEAD
+=======
+using System.IO;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
+=======
+>>>>>>> Stashed changes
 
 namespace SeniorPro
 {
@@ -60,8 +75,10 @@ namespace SeniorPro
             txt_Greutate.Click += txt_Greutate_Click;
             txt_Greutate.Leave += txt_Greutate_Leave;
 
+=======
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
             this.WindowState = FormWindowState.Maximized;
+>>>>>>> Stashed changes
          }
 
         private void txt_glicemie_Click(object sender, EventArgs e)
@@ -215,19 +232,29 @@ namespace SeniorPro
             {
                 try
                 {
+<<<<<<< HEAD
+                    try
+                    {
+                        con.Open();
+                        string query = "INSERT INTO Tensiuni (IdUser, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+=======
                     con.Open();
+                        string query = "INSERT INTO Tensiuni (IdUser, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+                        string query = "INSERT INTO Tensiuni (Id, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
                     string query = "INSERT INTO Tensiuni (IdUser, TA_Sistolica, TA_Diastolica, data, sare, suparare, efort, ora) " +
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
                         "VALUES (@id, @maxima, @minima, @ziua, @sarat, @suparat, @efort, @ora)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
-                    cmd.Parameters.AddWithValue("@id", utilizator);
-                    cmd.Parameters.AddWithValue("@minima", numericValue_tensiuneMinima);
-                    cmd.Parameters.AddWithValue("@maxima", numericValue_tensiuneMaxima);
-                    cmd.Parameters.AddWithValue("@ziua", DateTime.Now.Date);
-                    cmd.Parameters.AddWithValue("@ora", numericValue_ora);
-                    cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
-                    cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
+<<<<<<< HEAD
+                        cmd.Parameters.AddWithValue("@id", utilizator);
+                        cmd.Parameters.AddWithValue("@minima", numericValue_tensiuneMinima);
+                        cmd.Parameters.AddWithValue("@maxima", numericValue_tensiuneMaxima);
+                        cmd.Parameters.AddWithValue("@ziua", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@ora", numericValue_ora);
+                        cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
                     con.Close();
                     con.Open();
                     SqlTransaction transaction = con.BeginTransaction();
@@ -236,6 +263,26 @@ namespace SeniorPro
                     transaction.Commit();
 
                
+                        MessageBox.Show("Înregistrare reușită!");
+                        txt_ora_tensiune.Hide();
+                        txt_tensiune_minima.Hide();
+                        txt_tensiune_maxima.Hide();
+                        btn_tensiuneGata.Hide();
+                        check_sarat.Hide();
+                        check_suparat.Hide();
+                        check_efort.Hide();
+=======
+                    cmd.Parameters.AddWithValue("@id", utilizator);
+                    cmd.Parameters.AddWithValue("@minima", numericValue_tensiuneMinima);
+                    cmd.Parameters.AddWithValue("@maxima", numericValue_tensiuneMaxima);
+                    cmd.Parameters.AddWithValue("@ziua", DateTime.Now.Date);
+                    cmd.Parameters.AddWithValue("@ora", numericValue_ora);
+                    cmd.Parameters.AddWithValue("@sarat", check_sarat.Checked ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@suparat", check_suparat.Checked ? 1 : 0);
+                    cmd.Parameters.AddWithValue("@efort", check_efort.Checked ? 1 : 0);
+
+                        cmd.ExecuteNonQuery();
+
                     MessageBox.Show("Înregistrare reușită!");
                     txt_ora_tensiune.Hide();
                     txt_tensiune_minima.Hide();
@@ -244,6 +291,7 @@ namespace SeniorPro
                     check_sarat.Hide();
                     check_suparat.Hide();
                     check_efort.Hide();
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
                 }
                 catch (Exception ex)
                 {
@@ -283,8 +331,12 @@ namespace SeniorPro
                 "ON T1.data = T2.data AND T1.TA_Sistolica= T2.MaxSistolica order by T1.data";
 
             
+<<<<<<< HEAD
             DataTable dt0 = new DataTable();
+=======
+            DataSet ds0 = new DataSet();
 
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             SqlCommand cmd0 = new SqlCommand(query0, con);
             cmd0.Parameters.AddWithValue("@id", utilizator);
             cmd0.Parameters.AddWithValue("@nrzile", nrzile);
@@ -303,10 +355,17 @@ namespace SeniorPro
 
             for (int i = 0; i < dt0.Rows.Count; i++)
             {
+<<<<<<< HEAD
                 DateTime date = (DateTime)dt0.Rows[i]["data"];
                 int sistolica = Convert.ToInt32(dt0.Rows[i]["TA_Sistolica"]);
                 int diastolica = Convert.ToInt32(dt0.Rows[i]["TA_Diastolica"]);
+                
+=======
+                DateTime date = (DateTime)ds0.Tables[0].Rows[i]["data"];
+                int sistolica = Convert.ToInt32(ds0.Tables[0].Rows[i]["TA_Sistolica"]);
+                int diastolica = Convert.ToInt32(ds0.Tables[0].Rows[i]["TA_Diastolica"]);
 
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
                 DataPoint pointSistolica = new DataPoint(date.ToOADate(), sistolica);
                 seriesSistolica.Points.Add(pointSistolica);
                 DataPoint pointDiastolica = new DataPoint(date.ToOADate(), diastolica);
@@ -326,7 +385,12 @@ namespace SeniorPro
             }
             adapter0.Dispose();
         }
+<<<<<<< HEAD
+
         private void btnGreutateGata_Click(object sender, EventArgs e)
+=======
+        private void txt_ora_tensiune_Leave(object sender, EventArgs e)
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
         {
             if ((txt_Greutate.Text == " " || txt_Greutate.Text == txt4))
             {
@@ -368,7 +432,9 @@ namespace SeniorPro
                     con.Close();
                 }
             }
-            MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă în câmpul greutate!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+=======
+                MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă în câmpul greutate!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+>>>>>>> Stashed changes
         }
 
         private void btnGreutate_Click(object sender, EventArgs e)
@@ -486,9 +552,82 @@ namespace SeniorPro
             }
         }
 
+        private void btn_ok3_Click(object sender, EventArgs e)
+        {
+            int nrluni = 6;
+
+            if (!string.IsNullOrWhiteSpace(textBox4.Text))
+            {
+                if (!int.TryParse(textBox4.Text, out nrluni))
+                {
+                    MessageBox.Show("Vă rugăm să introduceți o valoare numerică validă!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                textBox4.Text = "6";
+            }
+
+            con.Open();
+
+            string query = @"
+        SELECT 
+            AVG(NumarKg) AS GreutateMedie,
+            DATEPART(MONTH, data) AS Luna,
+            DATEPART(YEAR, data) AS An
+        FROM 
+            Greutate
+        WHERE 
+            IdUser = @id 
+            AND DATEADD(MONTH, @nrluni, data) >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0)
+        GROUP BY 
+            DATEPART(MONTH, data), 
+            DATEPART(YEAR, data) 
+        ORDER BY An, Luna";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            DataTable dt = new DataTable();
+
+            cmd.Parameters.AddWithValue("@id", utilizator);
+            cmd.Parameters.AddWithValue("@nrluni", nrluni - 1);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            con.Close();
+
+            Series seriegreutate = chart3.Series[0];
+            seriegreutate.ChartType = SeriesChartType.Column;
+            seriegreutate.Points.Clear();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                double greutateMedie = Convert.ToDouble(dt.Rows[i]["GreutateMedie"]);
+                int luna = Convert.ToInt32(dt.Rows[i]["Luna"]);
+                int an = Convert.ToInt32(dt.Rows[i]["An"]);
+
+                DateTime luna_an = new DateTime(an, luna, 1);
+                DataPoint point = new DataPoint(luna_an.ToOADate(), greutateMedie);
+                seriegreutate.Points.Add(point);
+                point.AxisLabel = luna_an.ToString("MMM \n yyyy");
+            }
+            adapter.Dispose();
+        }
+        private void txt_ora_tensiune_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_ora_tensiune.Text))
+            {
+                txt_ora_tensiune.Text = ora2;
+>>>>>>> Stashed changes
+            }
+        }
+
         private void btn_ok_glicemie_Click(object sender, EventArgs e) // FillChartGlicemie
         {
+<<<<<<< HEAD
             int nrzile = 7; 
+=======
+            int nrzile = 7;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
 
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -556,12 +695,15 @@ namespace SeniorPro
             Application.Exit();
         }
 
+        }
+
         private void btn_tratament_Click(object sender, EventArgs e)
         {
             Hide();
             new tratament(utilizator, nume).Show(); this.Hide();
         }
 
+>>>>>>> Stashed changes
         private void btn_glicemie_Click(object sender, EventArgs e)
         {
             txt_glicemie.Show();

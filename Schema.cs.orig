@@ -1,17 +1,31 @@
 ﻿using System;
 using System.Data;
+<<<<<<< HEAD
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+=======
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
+
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
 namespace SeniorPro
 {
     public partial class Schema : Form
     {
         int utilizator;
-        string nume;
+<<<<<<< HEAD
+        public Amintiri()
+        {
+            InitializeComponent();
 
+        int utilizator;
+=======
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
+        string nume;
         SqlConnection con;
         SqlDataAdapter da;
         SqlCommand cmd;
@@ -22,10 +36,16 @@ namespace SeniorPro
             InitializeComponent();
 
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+<<<<<<< HEAD
             nume = b;
             utilizator = a;
 
+=======
+
+            utilizator = a; 
+            nume = b;
             hideTot();
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             pictureBox1.MouseEnter += PictureBox_MouseEnter;
             pictureBox1.MouseLeave += PictureBox_MouseLeave;
 
@@ -40,57 +60,9 @@ seara și la nevoie.
 În coloana Cantitate se completează cu cantitatea în mg.";
             label2.Font = new Font(label2.Font.FontFamily, 10f, label2.Font.Style);
 
+<<<<<<< HEAD
             label2.Visible = false;
             label2.Location = new Point(12, 45);
-            label2.Visible = true;
-        }
-
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder cb;
-            con.Open();
-
-            if (ds.Tables["Medicamente1"].GetChanges() != null)
-            {
-                foreach (DataRow row in ds.Tables["Medicamente1"].Rows)
-                {
-                    row[1] = utilizator;
-                }
-                cb = new SqlCommandBuilder(da);
-                da.Update(ds.Tables["Medicamente1"]);
-            }
-
-            if (ds.Tables["Medicamente2"].GetChanges() != null)
-            {
-                foreach (DataRow row in ds.Tables["Medicamente2"].Rows)
-                {
-                    row[1] = utilizator;
-                }
-                cb = new SqlCommandBuilder(da);
-                da.Update(ds.Tables["Medicamente2"]);
-            }
-
-            if (ds.Tables["Medicamente3"].GetChanges() != null)
-            {
-                foreach (DataRow row in ds.Tables["Medicamente3"].Rows)
-                {
-                    row[1] = utilizator;
-                }
-                cb = new SqlCommandBuilder(da);
-                da.Update(ds.Tables["Medicamente3"]);
-            }
-
-            if (ds.Tables["Medicamente4"].GetChanges() != null)
-            {
-                foreach (DataRow row in ds.Tables["Medicamente4"].Rows)
-                {
-                    row[1] = utilizator;
-                }
-                cb = new SqlCommandBuilder(da);
-                da.Update(ds.Tables["Medicamente4"]);
-            }
-
-            con.Close();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -146,6 +118,115 @@ seara și la nevoie.
             {
                 MessageBox.Show("Pentru a sterge trebuie sa selectati tot randul!", "Selectati tot randul", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+=======
+           label2.Location = new Point(12, 45);
+            label2.Visible = true;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            SqlCommandBuilder cb;
+            con.Open();
+
+            if (ds.Tables["Medicamente1"].GetChanges() != null)
+            {
+                foreach (DataRow row in ds.Tables["Medicamente1"].Rows)
+                {
+                    row[1] = utilizator;
+                }
+                cb = new SqlCommandBuilder(da);
+                da.Update(ds.Tables["Medicamente1"]);
+            }
+
+            if (ds.Tables["Medicamente2"].GetChanges() != null)
+            {
+                foreach (DataRow row in ds.Tables["Medicamente2"].Rows)
+                {
+                    row[1] = utilizator;
+                }
+                cb = new SqlCommandBuilder(da);
+                da.Update(ds.Tables["Medicamente2"]);
+            }
+
+            if (ds.Tables["Medicamente3"].GetChanges() != null)
+            {
+                foreach (DataRow row in ds.Tables["Medicamente3"].Rows)
+                {
+                    row[1] = utilizator;
+                }
+                cb = new SqlCommandBuilder(da);
+                da.Update(ds.Tables["Medicamente3"]);
+            }
+
+            if (ds.Tables["Medicamente4"].GetChanges() != null)
+            {
+                foreach (DataRow row in ds.Tables["Medicamente4"].Rows)
+                {
+                    row[1] = utilizator;
+                }
+                cb = new SqlCommandBuilder(da);
+                da.Update(ds.Tables["Medicamente4"]);
+            }
+
+            con.Close();
+        }
+
+<<<<<<< HEAD
+=======
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            bool ok = false;
+            int id1 = -1, id2 = -1, id3 = -1, id4 = -1;
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Selected == true)
+                {
+                    id1 = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                    ok = true;
+                }
+            }
+            for (int i = 0; i < dataGridView2.Rows.Count; i++)
+            {
+                if (dataGridView2.Rows[i].Selected == true)
+                {
+                    id2 = Convert.ToInt32(dataGridView2.Rows[i].Cells[0].Value);
+                    ok = true;
+                }
+            }
+            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+            {
+                if (dataGridView3.Rows[i].Selected == true)
+                {
+                    id3 = Convert.ToInt32(dataGridView3.Rows[i].Cells[0].Value);
+                    ok = true;
+                }
+            }
+            for (int i = 0; i < dataGridView4.Rows.Count; i++)
+            {
+                if (dataGridView4.Rows[i].Selected == true)
+                {
+                    id4 = Convert.ToInt32(dataGridView4.Rows[i].Cells[0].Value);
+                    ok = true;
+                }
+            }
+
+            if (ok)
+            {
+                string q = "DELETE FROM Medicamente WHERE Idmedicament = @id1 OR Idmedicament = @id2 OR Idmedicament = @id3 OR Idmedicament = @id4";
+                cmd = new SqlCommand(q, con);
+                cmd.Parameters.AddWithValue("@id1", id1);
+                cmd.Parameters.AddWithValue("@id2", id2);
+                cmd.Parameters.AddWithValue("@id3", id3);
+                cmd.Parameters.AddWithValue("@id4", id4);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Stergere efectuata!");
+            }
+            else
+            {
+                MessageBox.Show("Pentru a sterge trebuie sa selectati tot randul!", "Selectati tot randul", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void PictureBox_MouseEnter(object sender, EventArgs e)
@@ -175,6 +256,7 @@ seara și la nevoie.
             label2.Visible = false;
         }
 
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
         private void Schema_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -182,7 +264,11 @@ seara și la nevoie.
 
         private void LoadData()
         {
+<<<<<<< HEAD
             string q = "SELECT Idmedicament, IdUser, medicament As Medicament, cantitate AS Cantitate, moment_al_zilei As [Moment al zilei], masa AS [Inainte/Dupa masa], concentratie AS Concentratie  FROM Medicamente WHERE IdUser = @utilizator AND moment_al_zilei = @moment";
+=======
+            string q = "SELECT Idmedicament, IdUser, medicament As Medicament, cantitate AS Cantitate, moment_al_zilei, masa AS [Inainte/ Dupa masa], concentratie AS Concentratie  FROM Medicamente WHERE IdUser = @utilizator AND moment_al_zilei = @moment";
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             da = new SqlDataAdapter(q, con);
             da.SelectCommand.Parameters.AddWithValue("@utilizator", utilizator);
             da.SelectCommand.Parameters.AddWithValue("@moment", "dimineata");
@@ -192,6 +278,10 @@ seara și la nevoie.
             dataGridView1.DataSource = ds.Tables["Medicamente1"];
             dataGridView1.Columns["Idmedicament"].Visible = false;
             dataGridView1.Columns["IdUser"].Visible = false;
+<<<<<<< HEAD
+            dataGridView1.AllowUserToDeleteRows = false;
+
+=======
             dataGridView1.Columns["moment_al_zilei"].Visible = false;
             dataGridView1.AllowUserToDeleteRows = false;
 
@@ -200,6 +290,7 @@ seara și la nevoie.
             {
                 comboBoxColumn.Items.AddRange("dupa", "inainte", "nu conteaza");
             }
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             da = new SqlDataAdapter(q, con);
             da.SelectCommand.Parameters.AddWithValue("@utilizator", utilizator);
             da.SelectCommand.Parameters.AddWithValue("@moment", "pranz");
@@ -209,7 +300,10 @@ seara și la nevoie.
             dataGridView2.DataSource = ds.Tables["Medicamente2"];
             dataGridView2.Columns["Idmedicament"].Visible = false;
             dataGridView2.Columns["IdUser"].Visible = false;
+<<<<<<< HEAD
+=======
             dataGridView2.Columns["moment_al_zilei"].Visible = false;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             dataGridView2.AllowUserToDeleteRows = false;
 
             da = new SqlDataAdapter(q, con);
@@ -221,54 +315,110 @@ seara și la nevoie.
             dataGridView3.DataSource = ds.Tables["Medicamente3"];
             dataGridView3.Columns["Idmedicament"].Visible = false;
             dataGridView3.Columns["IdUser"].Visible = false;
+<<<<<<< HEAD
+=======
             dataGridView3.Columns["moment_al_zilei"].Visible = false;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             dataGridView3.AllowUserToDeleteRows = false;
 
             da = new SqlDataAdapter(q, con);
             da.SelectCommand.Parameters.AddWithValue("@utilizator", utilizator);
             da.SelectCommand.Parameters.AddWithValue("@moment", "la nevoie");
+<<<<<<< HEAD
+=======
             dataGridView1.Columns["moment_al_zilei"].Visible = false;
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
             ds = new DataSet();
             da.Fill(ds, "Medicamente4");
 
             dataGridView4.DataSource = ds.Tables["Medicamente4"];
             dataGridView4.Columns["Idmedicament"].Visible = false;
             dataGridView4.Columns["IdUser"].Visible = false;
+<<<<<<< HEAD
+            dataGridView4.AllowUserToDeleteRows = false;
+        }
+
+        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            hideTot();
+        }
+
+        private void PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            arataTot();
+        }
+
+        private void hideTot()
+        {
+            label1.Visible = false;
+            label5.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            dataGridView1.Visible = false;
+            dataGridView2.Visible = false;
+            dataGridView3.Visible = false;
+            dataGridView4.Visible = false;
+            btn_delete.Visible = false;
+            btn_save.Visible = false;
+
+            label2.Visible = true;
+        }
+
+        private void arataTot()
+        {
+            label1.Visible = true;
+            label5.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            dataGridView1.Visible = true;
+            dataGridView2.Visible = true;
+            dataGridView3.Visible = true;
+            dataGridView4.Visible = true;
+            btn_save.Visible = true;
+            btn_delete.Visible = true;
+
+            label2.Visible = false;
+>>>>>>> Stashed changes:Schema.cs
+        }
+=======
             dataGridView4.Columns["moment_al_zilei"].Visible = false;
             dataGridView4.AllowUserToDeleteRows = false;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             hideTot();
             switch (comboBox1.SelectedItem.ToString())
             {
                 case "Dimineata":
-
+              
                     dataGridView1.Visible = true;
                     btn_save.Visible = true;
                     btn_delete.Visible = true;
                     break;
                 case "La pranz":
-
+                
                     dataGridView2.Visible = true;
                     btn_save.Visible = true;
                     btn_delete.Visible = true;
 
                     break;
                 case "Seara":
-
+                 
                     dataGridView3.Visible = true;
                     btn_save.Visible = true;
                     btn_delete.Visible = true;
                     break;
                 case "La nevoie":
-
+                  
                     dataGridView4.Visible = true;
                     btn_save.Visible = true;
                     btn_delete.Visible = true;
                     break;
             }
         }
+
+
+>>>>>>> 41a93e3 (zm revolvat conflictele cu vali)
     }
 }

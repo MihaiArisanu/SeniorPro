@@ -38,6 +38,7 @@
             this.lbl_seara = new System.Windows.Forms.Label();
             this.lbl_nevoie = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_dimineata
@@ -94,6 +95,7 @@
             // lbl_dimineata
             // 
             this.lbl_dimineata.AutoSize = true;
+            this.lbl_dimineata.BackColor = System.Drawing.Color.Cyan;
             this.lbl_dimineata.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_dimineata.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.lbl_dimineata.Location = new System.Drawing.Point(0, 119);
@@ -105,6 +107,7 @@
             // lbl_pranz
             // 
             this.lbl_pranz.AutoSize = true;
+            this.lbl_pranz.BackColor = System.Drawing.Color.Aquamarine;
             this.lbl_pranz.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_pranz.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.lbl_pranz.Location = new System.Drawing.Point(237, 119);
@@ -116,6 +119,7 @@
             // lbl_seara
             // 
             this.lbl_seara.AutoSize = true;
+            this.lbl_seara.BackColor = System.Drawing.Color.Cyan;
             this.lbl_seara.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_seara.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.lbl_seara.Location = new System.Drawing.Point(449, 119);
@@ -127,6 +131,7 @@
             // lbl_nevoie
             // 
             this.lbl_nevoie.AutoSize = true;
+            this.lbl_nevoie.BackColor = System.Drawing.Color.Aquamarine;
             this.lbl_nevoie.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_nevoie.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Italic);
             this.lbl_nevoie.Location = new System.Drawing.Point(664, 119);
@@ -139,7 +144,6 @@
             // 
             this.btn_back.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_back.BackColor = System.Drawing.Color.PowderBlue;
-            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
             this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_back.FlatAppearance.BorderSize = 0;
             this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -150,12 +154,27 @@
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.PowderBlue;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(843, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 39);
+            this.button1.TabIndex = 36;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // tratament
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.ClientSize = new System.Drawing.Size(905, 456);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lbl_nevoie);
             this.Controls.Add(this.lbl_seara);
@@ -185,5 +204,6 @@
         private System.Windows.Forms.Label lbl_seara;
         private System.Windows.Forms.Label lbl_nevoie;
         private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button button1;
     }
 }

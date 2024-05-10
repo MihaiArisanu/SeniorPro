@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace SeniorPro
 {
     public partial class Configurari : Form
