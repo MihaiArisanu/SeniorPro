@@ -4,20 +4,21 @@ using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace SeniorPro
 {
     public partial class forgot : Form
     {
         SqlCommand cmd;
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con;
         string randomCode;
         public static string to;
         
         public forgot()
         {
             InitializeComponent();
-
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["SeniorProConnectionString"].ConnectionString);
             txt_set.UseSystemPasswordChar = true;
             txt_confirm.UseSystemPasswordChar = true;
             btn_show.Text = "Arata";
@@ -88,7 +89,6 @@ namespace SeniorPro
                 }
                 else
                 {
-                    // Emailul nu a fost găsit în baza de date
                     MessageBox.Show("Emailul nu este cunoscut", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txt_email.Clear();
                     txt_email.Focus();
@@ -97,7 +97,7 @@ namespace SeniorPro
                     con.Open();
                 }
 
-                con.Close(); // Închide conexiunea după utilizare
+                con.Close();
             }
         }
 

@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
-
+using System.Configuration;
 
 namespace SeniorPro
 {
@@ -22,17 +15,16 @@ public partial class inregistrare : Form
         {
             InitializeComponent();
 
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
-            
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["SeniorProConnectionString"].ConnectionString);
+
             txt_pass.UseSystemPasswordChar = true;
             btn_show.Text = "Arată";
         }
 
         private void lbl_connect_Click(object sender, EventArgs e)
         {
-            login login = new login();
-            login.Show();
-            this.Hide();
+            Hide();
+            new login().Show();
         }
 
         private void btn_clean_Click(object sender, EventArgs e)
@@ -60,14 +52,14 @@ public partial class inregistrare : Form
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+
             string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|" + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)" + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
             var regex = new Regex(pattern, RegexOptions.IgnoreCase);
-            if(! regex.IsMatch(txt_email.Text))
+            if (!regex.IsMatch(txt_email.Text))
             {
                 MessageBox.Show("Adresa de email invalida", "Eroare la inregistrare", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else 
+            else
             if (txt_nickname.Text == "" || txt_email.Text == "" || txt_pass.Text == "" || txt_phone.Text == "" || dateTimePicker1.Value == DateTime.MinValue)
             {
                 MessageBox.Show("Toate campurile trebuie completate", "Eroare la inregistrare", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,7 +70,7 @@ public partial class inregistrare : Form
                 {
                     con.Open();
 
-                    string query = "INSERT INTO Utilizatori (nume, parola, email, data_nasterii, telefon) VALUES (@nickname,  @pass, @email, @dn, @phone)";
+                    string query = "INSERT INTO Utilizatori (nume, parola, email, data_nasterii, telefon, numeBot, accept) VALUES (@nickname,  @pass, @email, @dn, @phone, @bot, @accept)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@nickname", txt_nickname.Text);
@@ -86,10 +78,14 @@ public partial class inregistrare : Form
                     cmd.Parameters.AddWithValue("@pass", txt_pass.Text);
                     cmd.Parameters.AddWithValue("@phone", txt_phone.Text);
                     cmd.Parameters.AddWithValue("@dn", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@bot", "Chaty");
+                    cmd.Parameters.AddWithValue("@accept", false);
                     cmd.ExecuteNonQuery();
 
-                     MessageBox.Show("Înregistrare reușită!");
+                    MessageBox.Show("Înregistrare reușită!");
 
+                    Hide();
+                    new login().Show();
                 }
                 catch (Exception ex)
                 {

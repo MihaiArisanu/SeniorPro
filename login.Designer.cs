@@ -43,11 +43,11 @@ namespace SeniorPro
             // 
             // btn_show_hide
             // 
-            this.btn_show_hide.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_show_hide.Font = new System.Drawing.Font("Constantia", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_show_hide.Location = new System.Drawing.Point(486, 205);
+            this.btn_show_hide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_show_hide.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_hide.Location = new System.Drawing.Point(457, 217);
             this.btn_show_hide.Name = "btn_show_hide";
-            this.btn_show_hide.Size = new System.Drawing.Size(96, 33);
+            this.btn_show_hide.Size = new System.Drawing.Size(130, 33);
             this.btn_show_hide.TabIndex = 9;
             this.btn_show_hide.UseVisualStyleBackColor = true;
             this.btn_show_hide.Click += new System.EventHandler(this.btn_show_hide_Click);
@@ -58,10 +58,10 @@ namespace SeniorPro
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
-            this.label1.Location = new System.Drawing.Point(192, 132);
+            this.label1.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(197, 137);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 35);
+            this.label1.Size = new System.Drawing.Size(99, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Email:";
             // 
@@ -71,10 +71,10 @@ namespace SeniorPro
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
-            this.label2.Location = new System.Drawing.Point(192, 167);
+            this.label2.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(187, 172);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 35);
+            this.label2.Size = new System.Drawing.Size(109, 35);
             this.label2.TabIndex = 1;
             this.label2.Text = "Parola:";
             // 
@@ -83,9 +83,10 @@ namespace SeniorPro
             this.txt_email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_email.Location = new System.Drawing.Point(297, 137);
+            this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txt_email.Location = new System.Drawing.Point(302, 137);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(285, 22);
+            this.txt_email.Size = new System.Drawing.Size(285, 34);
             this.txt_email.TabIndex = 2;
             // 
             // txt_pass
@@ -93,29 +94,30 @@ namespace SeniorPro
             this.txt_pass.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_pass.Location = new System.Drawing.Point(297, 177);
+            this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.txt_pass.Location = new System.Drawing.Point(302, 177);
             this.txt_pass.Name = "txt_pass";
-            this.txt_pass.Size = new System.Drawing.Size(285, 22);
+            this.txt_pass.Size = new System.Drawing.Size(285, 34);
             this.txt_pass.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Italic);
-            this.label3.Location = new System.Drawing.Point(218, 34);
+            this.label3.Font = new System.Drawing.Font("Constantia", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(179, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(391, 49);
+            this.label3.Size = new System.Drawing.Size(431, 49);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Sa verificam cine esti?";
+            this.label3.Text = "Să verificăm cine ești?";
             // 
             // btn_password
             // 
             this.btn_password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_password.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
-            this.btn_password.Location = new System.Drawing.Point(12, 342);
+            this.btn_password.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btn_password.Location = new System.Drawing.Point(599, 342);
             this.btn_password.Name = "btn_password";
-            this.btn_password.Size = new System.Drawing.Size(167, 96);
+            this.btn_password.Size = new System.Drawing.Size(189, 96);
             this.btn_password.TabIndex = 5;
             this.btn_password.Text = "Am uitat parola";
             this.btn_password.UseVisualStyleBackColor = true;
@@ -124,24 +126,24 @@ namespace SeniorPro
             // btn_register
             // 
             this.btn_register.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_register.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
-            this.btn_register.Location = new System.Drawing.Point(621, 342);
+            this.btn_register.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btn_register.Location = new System.Drawing.Point(12, 342);
             this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(167, 96);
+            this.btn_register.Size = new System.Drawing.Size(189, 96);
             this.btn_register.TabIndex = 6;
-            this.btn_register.Text = "Nu m-am inregistrat";
+            this.btn_register.Text = "Nu m-am înregistrat";
             this.btn_register.UseVisualStyleBackColor = true;
             this.btn_register.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_login
             // 
-            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_login.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
-            this.btn_login.Location = new System.Drawing.Point(283, 261);
+            this.btn_login.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_login.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Bold);
+            this.btn_login.Location = new System.Drawing.Point(283, 268);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(250, 51);
             this.btn_login.TabIndex = 8;
-            this.btn_login.Text = "Sa incepem!";
+            this.btn_login.Text = "Să începem!";
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
@@ -163,6 +165,7 @@ namespace SeniorPro
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "login";
             this.Text = "Autentificare";
             this.ResumeLayout(false);

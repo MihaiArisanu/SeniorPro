@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SeniorPro
 {
@@ -16,7 +9,8 @@ namespace SeniorPro
     {
         int utilizator;
         string nume;
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SeniorProConnectionString"].ConnectionString);
+        bool ok = false;
 
         public Configurari(int a, string b)
         {
@@ -25,93 +19,42 @@ namespace SeniorPro
             utilizator = a;
             nume = b;
 
-            panelContact.Visible = false;
-            panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
-        }
-
-        private void btnAdauga_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SeniorPro\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30"))
-            {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Imagini (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif|Toate fișierele (*.*)|*.*";
-                openFileDialog.Multiselect = true;
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string debugFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-
-                    if (!Directory.Exists(debugFolder))
-                    {
-                        Directory.CreateDirectory(debugFolder);
-                    }
-
-                    con.Open();
-
-                    foreach (string filePath in openFileDialog.FileNames)
-                    {
-                        try
-                        {
-                            string Cale = Application.StartupPath + @"\Images\" + Path.GetFileName(filePath);
-                            File.Copy(filePath, Cale);
-                            string insertQuery = "INSERT INTO Amintiri (CaleFisier, IdUser) VALUES (@CaleFisier, @IdU)";
-                            using (SqlCommand cmd = new SqlCommand(insertQuery, con))
-                            {
-                                cmd.Parameters.AddWithValue("@CaleFisier", Cale);
-                                cmd.Parameters.AddWithValue("@IdU", utilizator);
-
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Exista deja o imagine cu acest nume", "", MessageBoxButtons.OK);
-                        }
-                    }
-
-                    con.Close();
-                }
-            }
+            panelClose();
+            label1.Text = "Bine ai venit în secțiunea de actualizare date!";
+            label1.Visible = true;
         }
 
         private void btnAmintiri_Click(object sender, EventArgs e)
         {
-
-            panelContact.Visible = false;
-            if (panelAmintiri.Visible == false && panelImagini.Visible == false)
+            panelClose();
+            if(ok == false)
             {
-                panelAmintiri.Visible = true;
-                panelImagini.Visible = true;
+                ok = true;
+                openChildFormInPanel(new AmintiriConfigurari(utilizator, nume));
             }
             else
             {
-                panelAmintiri.Visible = false;
-                panelImagini.Visible = false;
+                panelClose();
+                ok = false;
             }
         }
 
         private void btnDatePersonale_Click(object sender, EventArgs e)
         {
-            panelContact.Visible = false;
-            panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelClose();
+            openChildFormInPanel(new DatePersonale(utilizator, nume));
         }
 
         private void btnContact_Click(object sender, EventArgs e)
         {
-            AfiseazaPersoanele();
-
-            panelContact.Visible = true;
-            panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelClose();
+            openChildFormInPanel(new Contact(utilizator, nume));
         }
 
         private void btnSchema_Click(object sender, EventArgs e)
         {
-            panelContact.Visible = false;
-            panelAmintiri.Visible = false;
-            panelImagini.Visible = false;
+            panelClose();
+            openChildFormInPanel(new Schema(utilizator, nume));
         }
 
         private void btnInapoi_Click(object sender, EventArgs e)
@@ -121,37 +64,61 @@ namespace SeniorPro
             go.Show();
         }
 
-        private void AfiseazaPersoanele()
+        private Form activeForm = null;
+        private void openChildFormInPanel(Form childForm)
         {
-            try
+            if (activeForm != null)
             {
-                con.Open();
-                string query = "SELECT nume FROM Persoane";
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                string listaPersoane = "";
-                while (reader.Read())
-                {
-                    listaPersoane += reader["Nume"].ToString() + "\n";
-                }
-                reader.Close();
-
-                labelPersoane.Text = listaPersoane;
+                activeForm.Close();
             }
-            catch (Exception ex)
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelChildForm.Controls.Add(childForm);
+            panelChildForm.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void btn_Valori_Click(object sender, EventArgs e)
+        {
+            panelClose();
+            if (ok == false)
             {
-                MessageBox.Show("Eroare: " + ex.Message);
+                label1.Text = "Actualizare valori pentru:\r\n          *glicemie\r\n          *greutate\r\n          *tensiune";
+                label1.Visible = true;
+                panelValori.Visible = true;
+                ok = true;
             }
-            finally
+            else
             {
-                con.Close();
+                panelClose();
+                ok = false;
             }
         }
 
-        private void btnPersoane_Click(object sender, EventArgs e)
+        private void Glicemie_Click(object sender, EventArgs e)
         {
-            AfiseazaPersoanele();
+            panelClose();
+            openChildFormInPanel(new Glicemie(utilizator, nume));
+        }
+
+        private void Greutate_Click(object sender, EventArgs e)
+        {
+            panelClose();
+            openChildFormInPanel(new Greutate(utilizator, nume));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panelClose();
+            openChildFormInPanel(new Tensiune(utilizator, nume));
+        }
+
+        private void panelClose()
+        {
+            panelValori.Visible = false;
         }
     }
 }

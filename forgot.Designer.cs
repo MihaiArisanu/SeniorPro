@@ -42,9 +42,9 @@ namespace SeniorPro
             this.txt_set = new System.Windows.Forms.TextBox();
             this.btn_show = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btn_clear = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_email
@@ -63,7 +63,7 @@ namespace SeniorPro
             // 
             // btn_email
             // 
-            this.btn_email.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
+            this.btn_email.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold);
             this.btn_email.Location = new System.Drawing.Point(302, 158);
             this.btn_email.Name = "btn_email";
             this.btn_email.Size = new System.Drawing.Size(209, 44);
@@ -86,42 +86,42 @@ namespace SeniorPro
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(96, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 37);
+            this.label1.Size = new System.Drawing.Size(311, 37);
             this.label1.TabIndex = 4;
             this.label1.Text = "Scrie adresa de email";
             // 
             // lbl_inregistrare
             // 
             this.lbl_inregistrare.AutoSize = true;
-            this.lbl_inregistrare.Font = new System.Drawing.Font("Constantia", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))));
-            this.lbl_inregistrare.Location = new System.Drawing.Point(132, 406);
+            this.lbl_inregistrare.Font = new System.Drawing.Font("Constantia", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_inregistrare.Location = new System.Drawing.Point(116, 406);
             this.lbl_inregistrare.Name = "lbl_inregistrare";
-            this.lbl_inregistrare.Size = new System.Drawing.Size(544, 35);
+            this.lbl_inregistrare.Size = new System.Drawing.Size(586, 35);
             this.lbl_inregistrare.TabIndex = 5;
-            this.lbl_inregistrare.Text = "Daca nu ai cont, trebuie sa se te inregistrezi";
+            this.lbl_inregistrare.Text = "Dacă nu ai cont, trebuie să se te înregistrezi";
             this.lbl_inregistrare.Click += new System.EventHandler(this.lbl_inregistrare_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(96, 238);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(356, 37);
+            this.label3.Size = new System.Drawing.Size(395, 37);
             this.label3.TabIndex = 6;
             this.label3.Text = "Scrie codul primit pe email";
             // 
             // btn_reset
             // 
-            this.btn_reset.Font = new System.Drawing.Font("Constantia", 16.2F, System.Drawing.FontStyle.Italic);
+            this.btn_reset.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold);
             this.btn_reset.Location = new System.Drawing.Point(302, 326);
             this.btn_reset.Name = "btn_reset";
             this.btn_reset.Size = new System.Drawing.Size(209, 44);
             this.btn_reset.TabIndex = 7;
-            this.btn_reset.Text = "Reseteaza";
+            this.btn_reset.Text = "Resetează";
             this.btn_reset.UseVisualStyleBackColor = true;
             // 
             // txt_confirm
@@ -151,44 +151,44 @@ namespace SeniorPro
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic);
+            this.label2.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(96, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(267, 37);
+            this.label2.Size = new System.Drawing.Size(289, 37);
             this.label2.TabIndex = 11;
             this.label2.Text = "Intro o noua parola";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Italic);
-            this.label4.Location = new System.Drawing.Point(96, 200);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(298, 37);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Confirma noua parola";
-            // 
             // btn_clear
             // 
-            this.btn_clear.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clear.Font = new System.Drawing.Font("Constantia", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.Location = new System.Drawing.Point(149, 296);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(147, 35);
             this.btn_clear.TabIndex = 13;
-            this.btn_clear.Text = "Sterge";
+            this.btn_clear.Text = "Șterge";
             this.btn_clear.UseVisualStyleBackColor = true;
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))));
-            this.label5.Location = new System.Drawing.Point(703, 20);
+            this.label5.Font = new System.Drawing.Font("Constantia", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(686, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 35);
+            this.label5.Size = new System.Drawing.Size(102, 35);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Inapoi";
+            this.label5.Text = "Înapoi";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(96, 200);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(326, 37);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Confirmă noua parola";
             // 
             // forgot
             // 
@@ -235,8 +235,8 @@ namespace SeniorPro
         private System.Windows.Forms.TextBox txt_set;
         private System.Windows.Forms.Button btn_show;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_clear;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SeniorPro
 {
@@ -20,20 +14,19 @@ namespace SeniorPro
             InitializeComponent();
 
             txt_pass.UseSystemPasswordChar = true;
-            btn_show_hide.Text = "Arata";
+            btn_show_hide.Text = "Arată";
 
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\C#\SlideShow\bin\Debug\SeniorPro.mdf;Integrated Security=True;Connect Timeout=30");
-            con.Open();
-
-            txt_email.Text = "lmiana@yahoo.com";
             txt_pass.Text = "123";
+            txt_email.Text = "mihai@yahoo.com";
+
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings["SeniorProConnectionString"].ConnectionString);
+            con.Open();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            inregistrare form = new inregistrare();
-            form.Show();
-            this.Hide();
+            Hide();
+            new inregistrare().Show();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -44,14 +37,8 @@ namespace SeniorPro
             var red = cmd.ExecuteReader();
             if (red.Read())
             {
-                Main main = new Main(red.GetInt32(0), red.GetString(1));
-                main.Show();
-                this.Hide();
-                main.FormClosed += (a, b) =>
-                {
-                    this.Show();
-                    txt_email.Text = txt_pass.Text = "";
-                };
+                Hide();
+                new Main(red.GetInt32(0), red.GetString(1)).Show();
             }
             else
             {
@@ -68,9 +55,8 @@ namespace SeniorPro
 
         private void btn_password_Click(object sender, EventArgs e)
         {
-            forgot go = new forgot();
-            go.Show();
-            this.Hide();
+            Hide();
+            new forgot().Show();
         }
 
         private void btn_show_hide_Click(object sender, EventArgs e)
@@ -85,7 +71,7 @@ namespace SeniorPro
             {
                 txt_pass.UseSystemPasswordChar = true;
                 txt_pass.Focus();
-                btn_show_hide.Text = "Arata";
+                btn_show_hide.Text = "Arată";
             }
         }
     }
